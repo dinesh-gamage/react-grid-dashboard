@@ -1,0 +1,207 @@
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+
+    .navigation-block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        background-color: #5752c9;
+        color: white;
+        height: 100%;
+        width: 200px;
+
+        .logo {
+            width: 100%;
+        }
+
+        .navigation-links {
+            ul {
+                margin: 0;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    padding: 8px;
+                }
+            }
+        }
+    }
+
+    .main-block {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+
+        .header {
+            position: fixed;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: nowrap;
+            align-items: center;
+            box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
+        }
+
+        .content-block {
+            position: relative;
+            margin-top: 60px;
+            height: 90%;
+            overflow: auto;
+            padding: 20px;
+
+            .toolbar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-end;
+
+                .toolbar-buttons {
+                    position: relative;
+                    margin: 4px;
+
+                    button {
+                        width: auto;
+                        height: auto;
+                        padding: 10px 15px;
+                        border-radius: 8px;
+                        background-color: white;
+                        color: gray;
+                        border: 1px solid gray;
+                        outline: 0;
+
+                        &:hover,
+                        &.active {
+                            color: white;
+                            background-color: #5752c9;
+                            box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+                            border: 1px solid #5752c9;
+                        }
+
+                        &.add-widget {
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .dropdown {
+                        width: auto;
+                        min-width: 100px;
+                        height: auto;
+                        border-radius: 8px;
+                        background-color: white;
+                        position: absolute;
+                        top: 100%;
+                        right: 0;
+                        transform: translateY(10px);
+                        z-index: 500;
+                        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 20px;
+
+                        select {
+                            width: auto;
+                            min-width: 150px;
+                            height: auto;
+                            padding: 10px;
+                            border-radius: 8px;
+                            margin: 6px;
+                            outline: none;
+                        }
+                    }
+
+                    .hide {
+                        display: none;
+                    }
+                }
+            }
+
+            .widget {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                padding: 10px;
+                overflow: hidden;
+            }
+
+            .layout {
+                div {
+                    &.layout-item {
+                        background: white !important;
+                        padding: 0;
+                        margin: 0;
+                        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);
+
+                        .overlay {
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: rgba(0, 0, 0, 0.25);
+                            z-index: 100;
+
+                            button {
+                                width: auto;
+                                height: auto;
+                                padding: 6px;
+                                border-radius: 0px;
+                                background-color: white;
+                                color: gray;
+                                border: 1px solid gray;
+                                outline: 0;
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                font-size: 10px;
+
+                                &:hover,
+                                &.active {
+                                    color: white;
+                                    background-color: #5752c9;
+                                    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+                                    border: 1px solid #5752c9;
+                                }
+                            }
+                        }
+
+                        .react-resizable-handle {
+                            z-index: 101;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="https://static.iviva.com/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" href="/node_modules/react-grid-layout/css/styles.css">
+    <link rel="stylesheet" href="/node_modules/react-resizable/css/styles.css">
+
+    <title>React Grid</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="widget"></div>
+
+    <!-- Dependencies -->
+    <!-- <script src="./node_modules/react/umd/react.development.js"></script> -->
+    <!-- <script src="./node_modules/react-dom/umd/react-dom.development.js"></script> -->
+
+    <!-- Main -->
+
+    <!-- <script>
+        let WidgetScripts = [
+            { path: "./resources/widgets/main.js" }
+        ];
+
+
+        let Widgets = {};
+
+        WidgetScripts.map((widgetScript, i) => {
+            var s = document.createElement('script');
+            s.setAttribute('src', widgetScript.path);
+            document.body.appendChild(s);
+
+            let widgets = window.Widgets;
+            console.log("___widgets");
+            console.log(widgets);
+        })
+
+    </script> -->
+
+    <script src="./resources/widgets/widget/dist/main.js"></script>
+
+    <script src="./dist/main.js"></script>
+</body>
+
+</html>

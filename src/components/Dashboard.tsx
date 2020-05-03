@@ -1,7 +1,5 @@
 import * as React from "react";
 import * as GridLayout from "react-grid-layout";
-import { Responsive as ResponsiveGridLayout } from 'react-grid-layout';
-import Widget from "../../resources/widgets/widget/src/components/Widget";
 
 declare global {
 
@@ -10,6 +8,9 @@ declare global {
     }
 }
 let Widgets = window.Widgets;
+if(typeof Widgets == "undefined") {
+    Widgets = [];
+}
 console.log("______Widgets__________");
 console.log(Widgets);
 
@@ -121,6 +122,9 @@ class Dashboard extends React.Component<IProps, IState> {
             }
         })
 
+
+        console.log("available widgets")
+        console.log(availableWidgets);
         this.setState({availableWidgets: availableWidgets});
     }
 

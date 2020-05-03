@@ -79742,63 +79742,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./src/components/FisrtWidget.tsx":
-/*!****************************************!*\
-  !*** ./src/components/FisrtWidget.tsx ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-const recharts_1 = __webpack_require__(/*! recharts */ "./node_modules/recharts/es6/index.js");
-class FirstWidget extends React.Component {
-    render() {
-        const data = [
-            {
-                name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-            },
-            {
-                name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-            },
-            {
-                name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-            },
-            {
-                name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-            },
-            {
-                name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-            },
-            {
-                name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-            },
-            {
-                name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-            },
-        ];
-        return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: `widget first-widget` },
-                React.createElement(recharts_1.LineChart, { width: 500, height: 300, data: data, margin: {
-                        top: 5, right: 30, left: 20, bottom: 5,
-                    } },
-                    React.createElement(recharts_1.CartesianGrid, { strokeDasharray: "3 3" }),
-                    React.createElement(recharts_1.XAxis, { dataKey: "name" }),
-                    React.createElement(recharts_1.YAxis, null),
-                    React.createElement(recharts_1.Tooltip, null),
-                    React.createElement(recharts_1.Legend, null),
-                    React.createElement(recharts_1.Line, { type: "monotone", dataKey: "pv", stroke: "#8884d8", activeDot: { r: 8 } }),
-                    React.createElement(recharts_1.Line, { type: "monotone", dataKey: "uv", stroke: "#82ca9d" })),
-                this.props.children)));
-    }
-}
-exports.default = FirstWidget;
-
-
-/***/ }),
-
 /***/ "./src/components/FourthWidget.tsx":
 /*!*****************************************!*\
   !*** ./src/components/FourthWidget.tsx ***!
@@ -79837,61 +79780,6 @@ class FourthWidget extends React.Component {
     }
 }
 exports.default = FourthWidget;
-
-
-/***/ }),
-
-/***/ "./src/components/SecondWidget.tsx":
-/*!*****************************************!*\
-  !*** ./src/components/SecondWidget.tsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-const recharts_1 = __webpack_require__(/*! recharts */ "./node_modules/recharts/es6/index.js");
-class SecondWidget extends React.Component {
-    render() {
-        const data = [
-            {
-                name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-            },
-            {
-                name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-            },
-            {
-                name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-            },
-            {
-                name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-            },
-            {
-                name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-            },
-            {
-                name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-            },
-            {
-                name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-            },
-        ];
-        return (React.createElement("div", { className: `widget second-widget` },
-            React.createElement(recharts_1.AreaChart, { width: 600, height: 400, data: data, margin: {
-                    top: 10, right: 30, left: 0, bottom: 0,
-                } },
-                React.createElement(recharts_1.CartesianGrid, { strokeDasharray: "3 3" }),
-                React.createElement(recharts_1.XAxis, { dataKey: "name" }),
-                React.createElement(recharts_1.YAxis, null),
-                React.createElement(recharts_1.Tooltip, null),
-                React.createElement(recharts_1.Area, { type: "monotone", dataKey: "uv", stackId: "1", stroke: "#8884d8", fill: "#8884d8" }),
-                React.createElement(recharts_1.Area, { type: "monotone", dataKey: "pv", stackId: "1", stroke: "#82ca9d", fill: "#82ca9d" }),
-                React.createElement(recharts_1.Area, { type: "monotone", dataKey: "amt", stackId: "1", stroke: "#ffc658", fill: "#ffc658" }))));
-    }
-}
-exports.default = SecondWidget;
 
 
 /***/ }),
@@ -79964,14 +79852,10 @@ exports.default = ThirdWidget;
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-const FisrtWidget_1 = __webpack_require__(/*! ./components/FisrtWidget */ "./src/components/FisrtWidget.tsx");
-const SecondWidget_1 = __webpack_require__(/*! ./components/SecondWidget */ "./src/components/SecondWidget.tsx");
 const ThirdWidget_1 = __webpack_require__(/*! ./components/ThirdWidget */ "./src/components/ThirdWidget.tsx");
 const FourthWidget_1 = __webpack_require__(/*! ./components/FourthWidget */ "./src/components/FourthWidget.tsx");
 // widget 
 let Widgets = [];
-Widgets.push({ "name": "FirstWidget", "widget": FisrtWidget_1.default });
-Widgets.push({ "name": "SecondWidget", "widget": SecondWidget_1.default });
 Widgets.push({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
 Widgets.push({ "name": "FourthWidget", "widget": FourthWidget_1.default });
 // set to window object
@@ -79981,8 +79865,6 @@ class Layout extends React.Component {
     render() {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "content" },
-                React.createElement(FisrtWidget_1.default, null),
-                React.createElement(SecondWidget_1.default, null),
                 React.createElement(ThirdWidget_1.default, null),
                 React.createElement(FourthWidget_1.default, null))));
     }

@@ -35618,6 +35618,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 const GridLayout = __webpack_require__(/*! react-grid-layout */ "./node_modules/react-grid-layout/index.js");
 let Widgets = window.Widgets;
+if (typeof Widgets == "undefined") {
+    Widgets = [];
+}
 console.log("______Widgets__________");
 console.log(Widgets);
 class Dashboard extends React.Component {
@@ -35695,6 +35698,8 @@ class Dashboard extends React.Component {
                 return widget;
             }
         });
+        console.log("available widgets");
+        console.log(availableWidgets);
         this.setState({ availableWidgets: availableWidgets });
     }
     onLayoutChange(layouts) {

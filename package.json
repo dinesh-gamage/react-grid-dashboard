@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js",
+    "build-w": "webpack --watch --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,8 @@
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/react-grid-layout": "^0.17.1",
+    "@types/recharts": "^1.8.7",
     "source-map-loader": "^0.2.4",
     "svg-url-loader": "^4.0.0",
     "ts-loader": "^6.2.1",
@@ -20,12 +23,12 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "@types/react-grid-layout": "^0.17.1",
     "css-loader": "^3.4.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-grid-layout": "^0.18.3",
+    "recharts": "^2.0.0-beta.1",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3"
   }

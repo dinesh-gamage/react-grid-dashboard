@@ -97,7 +97,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "html, body, #root {\n  width: 100%;\n  height: 100%;\n  position: relative; }\n\n.content {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%; }\n  .content .widget {\n    background-color: white;\n    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08); }\n    .content .widget.responsive-widget {\n      width: 100%;\n      height: 100%; }\n", ""]);
+exports.push([module.i, ".content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .content .widget {\n    background-color: white;\n    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08); }\n    .content .widget.third-widget {\n      width: 100%;\n      height: 300px; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -489,9 +489,9 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./src/components/FisrtWidget.tsx":
+/***/ "./src/components/ThirdWidget.tsx":
 /*!****************************************!*\
-  !*** ./src/components/FisrtWidget.tsx ***!
+  !*** ./src/components/ThirdWidget.tsx ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -501,7 +501,7 @@ module.exports = function (list, options) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const Rechart = __webpack_require__(/*! recharts */ "recharts");
-class FirstWidget extends React.Component {
+class ThirdWidget extends React.Component {
     render() {
         const data = [
             {
@@ -527,78 +527,19 @@ class FirstWidget extends React.Component {
             },
         ];
         return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: `widget responsive-widget` },
+            React.createElement("div", { className: "widget third-widget" },
                 React.createElement(Rechart.ResponsiveContainer, null,
-                    React.createElement(Rechart.LineChart, { data: data, margin: {
+                    React.createElement(Rechart.AreaChart, { data: data, margin: {
                             top: 10, right: 30, left: 0, bottom: 0,
                         } },
                         React.createElement(Rechart.CartesianGrid, { strokeDasharray: "3 3" }),
                         React.createElement(Rechart.XAxis, { dataKey: "name" }),
                         React.createElement(Rechart.YAxis, null),
                         React.createElement(Rechart.Tooltip, null),
-                        React.createElement(Rechart.Legend, null),
-                        React.createElement(Rechart.Line, { type: "monotone", dataKey: "pv", stroke: "#8884d8", activeDot: { r: 8 } }),
-                        React.createElement(Rechart.Line, { type: "monotone", dataKey: "uv", stroke: "#82ca9d" }))),
-                this.props.children)));
+                        React.createElement(Rechart.Area, { type: "monotone", dataKey: "uv", stroke: "#8884d8", fill: "#8884d8" }))))));
     }
 }
-exports.default = FirstWidget;
-
-
-/***/ }),
-
-/***/ "./src/components/SecondWidget.tsx":
-/*!*****************************************!*\
-  !*** ./src/components/SecondWidget.tsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const React = __webpack_require__(/*! react */ "react");
-const Rechart = __webpack_require__(/*! recharts */ "recharts");
-class SecondWidget extends React.Component {
-    render() {
-        const data = [
-            {
-                name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-            },
-            {
-                name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-            },
-            {
-                name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-            },
-            {
-                name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-            },
-            {
-                name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-            },
-            {
-                name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-            },
-            {
-                name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-            },
-        ];
-        return (React.createElement("div", { className: `widget responsive-widget` },
-            React.createElement(Rechart.ResponsiveContainer, null,
-                React.createElement(Rechart.AreaChart, { data: data, margin: {
-                        top: 10, right: 30, left: 0, bottom: 0,
-                    } },
-                    React.createElement(Rechart.CartesianGrid, { strokeDasharray: "3 3" }),
-                    React.createElement(Rechart.XAxis, { dataKey: "name" }),
-                    React.createElement(Rechart.YAxis, null),
-                    React.createElement(Rechart.Tooltip, null),
-                    React.createElement(Rechart.Area, { type: "monotone", dataKey: "uv", stackId: "1", stroke: "#8884d8", fill: "#8884d8" }),
-                    React.createElement(Rechart.Area, { type: "monotone", dataKey: "pv", stackId: "1", stroke: "#82ca9d", fill: "#82ca9d" }),
-                    React.createElement(Rechart.Area, { type: "monotone", dataKey: "amt", stackId: "1", stroke: "#ffc658", fill: "#ffc658" })))));
-    }
-}
-exports.default = SecondWidget;
+exports.default = ThirdWidget;
 
 
 /***/ }),
@@ -644,13 +585,11 @@ module.exports = content.locals || {};
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
-const FisrtWidget_1 = __webpack_require__(/*! ./components/FisrtWidget */ "./src/components/FisrtWidget.tsx");
-const SecondWidget_1 = __webpack_require__(/*! ./components/SecondWidget */ "./src/components/SecondWidget.tsx");
+const ThirdWidget_1 = __webpack_require__(/*! ./components/ThirdWidget */ "./src/components/ThirdWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
 // widget 
 let Widgets = [];
-Widgets.push({ "name": "FirstWidget", "widget": FisrtWidget_1.default });
-Widgets.push({ "name": "SecondWidget", "widget": SecondWidget_1.default });
+Widgets.push({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
 // set to window object
 let prevWidgets = window.Widgets || [];
 window.Widgets = prevWidgets.concat(Widgets);
@@ -658,8 +597,7 @@ class Layout extends React.Component {
     render() {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "content" },
-                React.createElement(FisrtWidget_1.default, null),
-                React.createElement(SecondWidget_1.default, null))));
+                React.createElement(ThirdWidget_1.default, null))));
     }
 }
 // render dom

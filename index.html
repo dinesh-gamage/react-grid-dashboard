@@ -13,26 +13,75 @@
 </head>
 
 <body>
-    <div id="root" ></div>
+    <div id="root"></div>
 
     <!-- Dependencies -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    
+
     <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/recharts/1.8.5/Recharts.min.js"></script>
 
     <!-- Main -->
 
     <!-- TODO :: load scripts dynamically -->
-    <script src="./resources//widgets/widget-set-01/main.js"></script>
+    <!-- <script src="./resources//widgets/widget-set-01/main.js"></script>
     <script src="./resources//widgets/widget-set-03/main.js"></script>
-    <script src="./dist/main.js"></script>
+    <script src="./dist/main.js"></script> -->
+
     <script>
 
-        renderDashboard("root", window.Widgets);
+        let scripts = [
+            "./resources//widgets/widget-set-01/main.js",
+            "./resources//widgets/widget-set-03/main.js"
+        ]
+
+        const loadWidgets = (widgets, callback) => {
+
+            widgets.map((widget, i) => {
+                loadScriptFile(widget);
+            })
+
+            if (typeof callback == "function") {
+                callback();
+            }
+        }
+
+        const loadScriptFile = (path, callback) => {
+            var script = document.createElement('script');
+
+            if (script.readyState) {  // only required for IE <9
+                script.onreadystatechange = function () {
+                    if (script.readyState === "loaded" || script.readyState === "complete") {
+                        script.onreadystatechange = null;
+
+                        if (typeof callback == "function") {
+                            callback();
+                        }
+                    }
+                };
+            } else {  //Others
+                script.onload = function () {
+                    if (typeof callback == "function") {
+                        callback();
+                    }
+                };
+            }
+
+            script.setAttribute('src', path);
+            document.body.appendChild(script);
+        }
+
+
+
+
+        loadWidgets(scripts, loadScriptFile.bind(this, "./dist/main.js", () => {
+            renderDashboard("root", window.Widgets);
+        }))
 
     </script>
+
+
 </body>
 
 </html>

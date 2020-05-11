@@ -643,7 +643,6 @@ module.exports = content.locals || {};
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
-const ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 const FisrtWidget_1 = __webpack_require__(/*! ./components/FisrtWidget */ "./src/components/FisrtWidget.tsx");
 const SecondWidget_1 = __webpack_require__(/*! ./components/SecondWidget */ "./src/components/SecondWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
@@ -663,7 +662,10 @@ class Layout extends React.Component {
     }
 }
 // render dom
-ReactDOM.render(React.createElement(Layout, null), document.getElementById("root"));
+// ReactDOM.render(
+//     <Layout />,
+//     document.getElementById("root")
+// );
 
 
 /***/ }),
@@ -676,17 +678,6 @@ ReactDOM.render(React.createElement(Layout, null), document.getElementById("root
 /***/ (function(module, exports) {
 
 module.exports = React;
-
-/***/ }),
-
-/***/ "react-dom":
-/*!***************************!*\
-  !*** external "ReactDOM" ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ReactDOM;
 
 /***/ }),
 

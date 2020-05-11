@@ -584,7 +584,6 @@ module.exports = content.locals || {};
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
-const ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 const ThirdWidget_1 = __webpack_require__(/*! ./components/ThirdWidget */ "./src/components/ThirdWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
 // widget 
@@ -600,8 +599,11 @@ class Layout extends React.Component {
                 React.createElement(ThirdWidget_1.default, null))));
     }
 }
-// render dom
-ReactDOM.render(React.createElement(Layout, null), document.getElementById("root"));
+// // render dom
+// ReactDOM.render(
+//     <Layout />,
+//     document.getElementById("root")
+// );
 
 
 /***/ }),
@@ -614,17 +616,6 @@ ReactDOM.render(React.createElement(Layout, null), document.getElementById("root
 /***/ (function(module, exports) {
 
 module.exports = React;
-
-/***/ }),
-
-/***/ "react-dom":
-/*!***************************!*\
-  !*** external "ReactDOM" ***!
-  \***************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ReactDOM;
 
 /***/ }),
 

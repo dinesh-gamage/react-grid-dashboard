@@ -14,7 +14,8 @@ interface IProps {
 
 interface IState {
     width: number,
-    widgets: any[]
+    widgets: any[],
+    pageLoaded: boolean
 }
 
 
@@ -25,7 +26,8 @@ class Dashboard extends React.Component<IProps, IState> {
 
         this.state = {
             width: 1200,
-            widgets: []
+            widgets: [],
+            pageLoaded: false
         }
 
         this.onLayoutChange = this.onLayoutChange.bind(this);
@@ -44,19 +46,25 @@ class Dashboard extends React.Component<IProps, IState> {
     }
 
     onLayoutChange(layouts: any) {
-        console.log("___layout___");
-        console.log(layouts);
+        // console.log("___layout___");
+        // console.log(layouts);
 
         // get widgets
         let Widgets = this.state.widgets;
         Widgets.map((widget: any) => {
 
+            // console.log("on layout change")
+            // console.log(widget.name)
+            // console.log(widget.key.toString())
+
             let _layout = layouts.find((layout: any) => layout.i == widget.key.toString());
+            // console.log(_layout.i);
             // _layout cannont be undefined at this point
             if (typeof _layout != "undefined") {
                 widget.layout = _layout;
             }
         });
+
 
         this.setState({
             widgets: Widgets
@@ -66,7 +74,7 @@ class Dashboard extends React.Component<IProps, IState> {
     }
 
     saveToLocalStorage() {
-        console.log("saving to local storage")
+        // console.log("saving to local storage")
         let widgets = this.state.widgets;
         localStorage.setItem("saved_widgets", JSON.stringify(widgets));
     }

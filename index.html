@@ -28,13 +28,14 @@
 
         let scripts = [
             "./resources/widgets/widget-set-01/main.js",
-            "./resources/widgets/widget-set-03/main.js"
+            "./resources/widgets/widget-set-03/main.js",
+            "./resources/widgets/widget-set-04/main.js",
         ]
 
         let Widgets = [];
 
         // register widgets
-        function registerWidgets(widgetConfig) {
+        function registerWidget(widgetConfig) {
             Widgets.push(widgetConfig);
         }
 
@@ -76,6 +77,32 @@
             document.body.appendChild(script);
         }
 
+        // get layout for new widgets using configurations
+        const getLayoutUsingConfigs = (widget) => {
+            let layout = { x: 0, y: 0, w: 6, h: 8, isDraggable: true, isResizable: true };
+
+            // check for configurations 
+            if (widget.hasOwnProperty("configs")) {
+                // console.log("widget has configs");
+                let configs = widget["configs"];
+                let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW"];
+
+                // remove additional configurations
+                Object.keys(configs).map(key => {
+                    if (sampleConfigKeys.indexOf(key) == -1) {
+                        delete configs[key];
+                    }
+                })
+
+                // merege config with layout
+                // layout options will be replaced with configs
+                let merged = { ...layout, ...configs };
+                // console.log(merged);
+                layout = merged;
+            }
+
+            return layout;
+        }
 
         // get widgets from localstorage
         const loadFromLocalStorage = () => {
@@ -84,46 +111,58 @@
 
             let newWidgets = [];
             let returnWidgets = [];
+            let lastLayout = null;
 
             let __widgets = Widgets;
 
             __widgets.map(widget => {
 
                 let savedWidget = savedWidgets.find(sw => sw.name == widget.name);
-
+                console.log(savedWidget);
                 if (typeof savedWidget == "undefined") {
                     newWidgets.push(widget);
                 }
                 else {
                     // get layout
-                    widget.layout = savedWidget.layout;
-                    widget.key = parseInt(savedWidget.key);
+                    let savedLayout = savedWidget.layout
+                    widget.layout = savedLayout;
+                    widget.key = returnWidgets.length;// reset key  // parseInt(savedWidget.key);
 
                     returnWidgets.push(widget);
+
+                    if(lastLayout === null) {
+                        lastLayout = savedLayout;
+                    }
+                    else {
+                        if(lastLayout.x < savedLayout.x || lastLayout.y < savedLayout.y) {
+                            lastLayout = savedLayout;
+                        }
+                    }
                 }
             });
 
-           
+
             // generate layout for new widgets
             newWidgets.map((newWidget, i) => {
-                let layout = { x: 0, y: 0, w: 6, h: 8, isDraggable: true, isResizable: true };
+                let layout = getLayoutUsingConfigs(newWidget);
 
-                let lastKey = i - 1;
-                let last = returnWidgets[returnWidgets.length - 1];
-                
-                if (typeof last !== "undefined") {
-                    lastKey = last.key;
-                    let ll = last.layout;
+                if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0) ) {
+                    let last = returnWidgets[returnWidgets.length -1];
+                    lastLayout = last.layout;
+                }
 
-                    layout.y = ll.y + ll.h + 1;
-                    if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
-                        layout.x = ll.x + ll.w + 1;
-                        layout.y = ll.y
+
+                if(lastLayout !== null){
+                    layout.y = lastLayout.y + lastLayout.h + 1;
+                    if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + 6) <= 12) {
+                        layout.x = lastLayout.x + lastLayout.w + 1;
+                        layout.y = lastLayout.y
                     }
                 }
 
+                layout.i = returnWidgets.length.toString();
                 newWidget.layout = layout;
-                newWidget.key = (parseInt(lastKey) + 1);
+                newWidget.key = returnWidgets.length;
 
                 returnWidgets.push(newWidget);
             })
@@ -134,8 +173,9 @@
 
         // load widget scripts
         loadWidgets(scripts, loadScriptFile.bind(this, "./dist/main.js", () => {
-            window.Widgets = loadFromLocalStorage();
-            
+            let _widgets = loadFromLocalStorage();
+            window.Widgets = _widgets;
+
             renderDashboard("root");
         }))
 

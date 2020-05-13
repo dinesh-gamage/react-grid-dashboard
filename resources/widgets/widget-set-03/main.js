@@ -97,7 +97,7 @@
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .content .widget {\n    background-color: white;\n    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.08); }\n    .content .widget.third-widget {\n      width: 100%;\n      height: 300px; }\n", ""]);
+exports.push([module.i, ".widget-03 {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: white; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -527,7 +527,7 @@ class ThirdWidget extends React.Component {
             },
         ];
         return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: "widget third-widget" },
+            React.createElement("div", { className: "widget-03" },
                 React.createElement(Rechart.ResponsiveContainer, null,
                     React.createElement(Rechart.AreaChart, { data: data, margin: {
                             top: 10, right: 30, left: 0, bottom: 0,
@@ -586,13 +586,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const ThirdWidget_1 = __webpack_require__(/*! ./components/ThirdWidget */ "./src/components/ThirdWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-// // widget 
-// let Widgets:any[] = [];
-// Widgets.push({ "name":"ThirdWidget", "widget":ThirdWidget });
-// // set to window object
-// let prevWidgets = window.Widgets||[];
-// window.Widgets = prevWidgets.concat(Widgets);
-window.registerWidgets({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
+window.registerWidget({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
 class Layout extends React.Component {
     render() {
         return (React.createElement(React.Fragment, null,

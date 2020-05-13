@@ -7347,25 +7347,47 @@ class Dashboard extends React.Component {
         super(props);
         this.state = {
             width: 1200,
-            widgets: this.props.widgets
+            widgets: []
         };
         this.onLayoutChange = this.onLayoutChange.bind(this);
+        this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
     }
     componentDidMount() {
         // get width
         let container = document.getElementById("content-block");
         // if (container.offsetWidth > this.state.width) {
-        this.setState({ width: container.offsetWidth });
+        this.setState({
+            width: container.offsetWidth - 50,
+            widgets: window.Widgets
+        });
         // }
     }
     onLayoutChange(layouts) {
         console.log("___layout___");
         console.log(layouts);
+        // get widgets
+        let Widgets = this.state.widgets;
+        Widgets.map((widget) => {
+            let _layout = layouts.find((layout) => layout.i == widget.key.toString());
+            // _layout cannont be undefined at this point
+            if (typeof _layout != "undefined") {
+                widget.layout = _layout;
+            }
+        });
+        this.setState({
+            widgets: Widgets
+        }, () => {
+            this.saveToLocalStorage();
+        });
+    }
+    saveToLocalStorage() {
+        console.log("saving to local storage");
+        let widgets = this.state.widgets;
+        localStorage.setItem("saved_widgets", JSON.stringify(widgets));
     }
     // render
     renderWidget(widget, key) {
         let WidgetElement = widget.widget;
-        // let layout = { x: 0, y: 0, w: 6, h: 8 };
         return (React.createElement("div", { className: "layout-item", key: key, "data-grid": widget.layout },
             React.createElement(WidgetElement, null)));
     }
@@ -7390,28 +7412,7 @@ class Dashboard extends React.Component {
                     React.createElement("div", { className: "content-block", id: "content-block" },
                         React.createElement("div", { className: "toolbar" },
                             React.createElement("div", { className: "toolbar-buttons" })),
-                        React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: this.state.width, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.props.widgets.map((widget, key) => {
-                            // get layout
-                            let last = null;
-                            if (key > 0)
-                                last = this.props.widgets[key - 1];
-                            console.log(last);
-                            // layout
-                            let layout = { x: 0, y: 0, w: 6, h: 8 };
-                            if (last != null) {
-                                let ll = last.layout;
-                                console.log(ll);
-                                layout.y = ll.y + ll.h + 1;
-                                if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
-                                    layout.x = ll.x + ll.w + 1;
-                                    layout.y = ll.y;
-                                }
-                                // console.log(layout);
-                            }
-                            widget.layout = layout;
-                            // this.props.widgets[key] = widget;
-                            return this.renderWidget(widget, key);
-                        })))))));
+                        React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: this.state.width, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))))));
     }
 }
 exports.default = Dashboard;
@@ -7466,8 +7467,8 @@ const Dashboard_1 = __webpack_require__(/*! ./components/Dashboard */ "./src/com
 //     <Dashboard />,
 //     document.getElementById("root")
 // );
-window.renderDashboard = (root, widgets) => {
-    ReactDOM.render(React.createElement(Dashboard_1.default, { widgets: widgets }), document.getElementById('root'));
+window.renderDashboard = (root) => {
+    ReactDOM.render(React.createElement(Dashboard_1.default, null), document.getElementById('root'));
 };
 
 

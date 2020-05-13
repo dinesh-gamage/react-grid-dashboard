@@ -9,6 +9,6 @@ import Dashboard from "./components/Dashboard";
 // );
 
 
-(window as any).renderDashboard = (root: string, widgets: any[]) => {
-    ReactDOM.render(<Dashboard widgets={widgets} />,document.getElementById('root'));
+(window as any).renderDashboard = (root: string) => {
+    ReactDOM.render(<Dashboard />,document.getElementById('root'));
 }

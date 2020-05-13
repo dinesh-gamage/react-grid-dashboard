@@ -24,42 +24,22 @@
 
     <!-- Main -->
 
-    <!-- TODO :: load scripts dynamically -->
-    <!-- <script src="./resources//widgets/widget-set-01/main.js"></script>
-    <script src="./resources//widgets/widget-set-03/main.js"></script>
-    <script src="./dist/main.js"></script> -->
-
     <script>
+
+        let scripts = [
+            "./resources/widgets/widget-set-01/main.js",
+            "./resources/widgets/widget-set-03/main.js"
+        ]
 
         let Widgets = [];
 
+        // register widgets
         function registerWidgets(widgetConfig) {
-
-            // // generate layout
-            // let layout = { x: 0, y: 0, w: 6, h: 8 };
-
-            // // get last layout
-            // if (Widgets.length > 0) {
-            //     let last = Widgets[Widgets.length - 1];
-            //     let ll = last.layout;
-
-            //     layout.y = ll.y + ll.h + 1;
-            //     if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
-            //         layout.x = ll.x + ll.w + 1;
-            //         layout.y = ll.y
-            //     }
-            // }
-
-            // // widgetConfig.widget.layout = layout;
-
             Widgets.push(widgetConfig);
         }
 
-        let scripts = [
-            "./resources//widgets/widget-set-01/main.js",
-            "./resources//widgets/widget-set-03/main.js"
-        ]
 
+        // load scripts functions
         const loadWidgets = (widgets, callback) => {
 
             widgets.map((widget, i) => {
@@ -97,10 +77,66 @@
         }
 
 
+        // get widgets from localstorage
+        const loadFromLocalStorage = () => {
+            let savedWidgets = JSON.parse(localStorage.getItem("saved_widgets"));
+            if (savedWidgets == null) savedWidgets = [];
+
+            let newWidgets = [];
+            let returnWidgets = [];
+
+            let __widgets = Widgets;
+
+            __widgets.map(widget => {
+
+                let savedWidget = savedWidgets.find(sw => sw.name == widget.name);
+
+                if (typeof savedWidget == "undefined") {
+                    newWidgets.push(widget);
+                }
+                else {
+                    // get layout
+                    widget.layout = savedWidget.layout;
+                    widget.key = parseInt(savedWidget.key);
+
+                    returnWidgets.push(widget);
+                }
+            });
+
+           
+            // generate layout for new widgets
+            newWidgets.map((newWidget, i) => {
+                let layout = { x: 0, y: 0, w: 6, h: 8, isDraggable: true, isResizable: true };
+
+                let lastKey = i - 1;
+                let last = returnWidgets[returnWidgets.length - 1];
+                
+                if (typeof last !== "undefined") {
+                    lastKey = last.key;
+                    let ll = last.layout;
+
+                    layout.y = ll.y + ll.h + 1;
+                    if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
+                        layout.x = ll.x + ll.w + 1;
+                        layout.y = ll.y
+                    }
+                }
+
+                newWidget.layout = layout;
+                newWidget.key = (parseInt(lastKey) + 1);
+
+                returnWidgets.push(newWidget);
+            })
+
+            return returnWidgets;
+        }
 
 
+        // load widget scripts
         loadWidgets(scripts, loadScriptFile.bind(this, "./dist/main.js", () => {
-            renderDashboard("root", Widgets);
+            window.Widgets = loadFromLocalStorage();
+            
+            renderDashboard("root");
         }))
 
     </script>

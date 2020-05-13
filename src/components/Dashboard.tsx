@@ -2,12 +2,14 @@ import * as React from "react";
 import * as GridLayout from "react-grid-layout";
 
 declare global {
-    interface Window { }
+    interface Window {
+        Widgets: any[]
+    }
 }
 
 
 interface IProps {
-    widgets: any[]
+    // widgets: any[]
 }
 
 interface IState {
@@ -23,30 +25,56 @@ class Dashboard extends React.Component<IProps, IState> {
 
         this.state = {
             width: 1200,
-            widgets: this.props.widgets
+            widgets: []
         }
 
         this.onLayoutChange = this.onLayoutChange.bind(this);
+        this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
     }
 
     componentDidMount() {
         // get width
-
         let container = document.getElementById("content-block");
         // if (container.offsetWidth > this.state.width) {
-        this.setState({ width: container.offsetWidth });
+        this.setState({
+            width: container.offsetWidth -50,
+            widgets: window.Widgets
+        });
         // }
     }
 
     onLayoutChange(layouts: any) {
         console.log("___layout___");
         console.log(layouts);
+
+        // get widgets
+        let Widgets = this.state.widgets;
+        Widgets.map((widget: any) => {
+
+            let _layout = layouts.find((layout: any) => layout.i == widget.key.toString());
+            // _layout cannont be undefined at this point
+            if (typeof _layout != "undefined") {
+                widget.layout = _layout;
+            }
+        });
+
+        this.setState({
+            widgets: Widgets
+        }, () => {
+            this.saveToLocalStorage();
+        })
     }
+
+    saveToLocalStorage() {
+        console.log("saving to local storage")
+        let widgets = this.state.widgets;
+        localStorage.setItem("saved_widgets", JSON.stringify(widgets));
+    }
+
 
     // render
     renderWidget(widget: any, key: number) {
         let WidgetElement = widget.widget;
-        // let layout = { x: 0, y: 0, w: 6, h: 8 };
 
         return (
             <div className="layout-item" key={key} data-grid={widget.layout}>
@@ -111,39 +139,12 @@ class Dashboard extends React.Component<IProps, IState> {
                         >
 
                             {
-                                this.props.widgets.map((widget: any, key: number) => {
-
-                                    // get layout
-                                    let last = null;
-                                    if (key > 0) last = this.props.widgets[key - 1];
-                                    console.log(last);
-
-                                    // layout
-                                    let layout = { x: 0, y: 0, w: 6, h: 8 };
-
-                                    if (last != null) {
-                                        let ll = last.layout;
-                                        console.log(ll);
-                                        layout.y = ll.y + ll.h + 1;
-                                        if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
-                                            layout.x = ll.x + ll.w + 1;
-                                            layout.y = ll.y
-                                        }
-
-                                        // console.log(layout);
-                                    }
-
-                                    widget.layout = layout;
-                                    // this.props.widgets[key] = widget;
-
-                                    return this.renderWidget(widget, key)
-                                })
+                                this.state.widgets.map((widget: any, key: number) => this.renderWidget(widget, key))
                             }
 
                         </GridLayout>
 
                     </div>
-
 
                 </div>
 

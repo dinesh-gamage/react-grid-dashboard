@@ -31,6 +31,30 @@
 
     <script>
 
+        let Widgets = [];
+
+        function registerWidgets(widgetConfig) {
+
+            // // generate layout
+            // let layout = { x: 0, y: 0, w: 6, h: 8 };
+
+            // // get last layout
+            // if (Widgets.length > 0) {
+            //     let last = Widgets[Widgets.length - 1];
+            //     let ll = last.layout;
+
+            //     layout.y = ll.y + ll.h + 1;
+            //     if ((ll.x + ll.w) < 12 && (ll.x + ll.w + 6) <= 12) {
+            //         layout.x = ll.x + ll.w + 1;
+            //         layout.y = ll.y
+            //     }
+            // }
+
+            // // widgetConfig.widget.layout = layout;
+
+            Widgets.push(widgetConfig);
+        }
+
         let scripts = [
             "./resources//widgets/widget-set-01/main.js",
             "./resources//widgets/widget-set-03/main.js"
@@ -76,7 +100,7 @@
 
 
         loadWidgets(scripts, loadScriptFile.bind(this, "./dist/main.js", () => {
-            renderDashboard("root", window.Widgets);
+            renderDashboard("root", Widgets);
         }))
 
     </script>

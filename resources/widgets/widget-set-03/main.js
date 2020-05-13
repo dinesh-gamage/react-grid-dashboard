@@ -586,12 +586,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const ThirdWidget_1 = __webpack_require__(/*! ./components/ThirdWidget */ "./src/components/ThirdWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-// widget 
-let Widgets = [];
-Widgets.push({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
-// set to window object
-let prevWidgets = window.Widgets || [];
-window.Widgets = prevWidgets.concat(Widgets);
+// // widget 
+// let Widgets:any[] = [];
+// Widgets.push({ "name":"ThirdWidget", "widget":ThirdWidget });
+// // set to window object
+// let prevWidgets = window.Widgets||[];
+// window.Widgets = prevWidgets.concat(Widgets);
+window.registerWidgets({ "name": "ThirdWidget", "widget": ThirdWidget_1.default });
 class Layout extends React.Component {
     render() {
         return (React.createElement(React.Fragment, null,

@@ -646,14 +646,18 @@ const React = __webpack_require__(/*! react */ "react");
 const FisrtWidget_1 = __webpack_require__(/*! ./components/FisrtWidget */ "./src/components/FisrtWidget.tsx");
 const SecondWidget_1 = __webpack_require__(/*! ./components/SecondWidget */ "./src/components/SecondWidget.tsx");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
-// widget 
-let Widgets = [];
-Widgets.push({ "name": "FirstWidget", "widget": FisrtWidget_1.default });
-Widgets.push({ "name": "SecondWidget", "widget": SecondWidget_1.default });
-// set to window object
-let prevWidgets = window.Widgets || [];
-window.Widgets = prevWidgets.concat(Widgets);
+// // widget 
+// let Widgets = [];
+// Widgets.push({ "name":"FirstWidget", "widget": FirstWidget });
+// Widgets.push({ "name":"SecondWidget", "widget": SecondWidget });
+// // set to window object
+// let prevWidgets = window.Widgets||[];
+// window.Widgets = prevWidgets.concat(Widgets);
+window.registerWidgets({ "name": "FirstWidget", "widget": FisrtWidget_1.default });
+window.registerWidgets({ "name": "SecondWidget", "widget": SecondWidget_1.default });
 class Layout extends React.Component {
+    componentWillMount() {
+    }
     render() {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "content" },
@@ -661,7 +665,7 @@ class Layout extends React.Component {
                 React.createElement(SecondWidget_1.default, null))));
     }
 }
-// render dom
+// // render dom
 // ReactDOM.render(
 //     <Layout />,
 //     document.getElementById("root")

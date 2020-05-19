@@ -18,6 +18,8 @@ interface IState {
     pageLoaded: boolean
 }
 
+const WIDTH = 1200;
+
 
 class Dashboard extends React.Component<IProps, IState> {
 
@@ -25,7 +27,7 @@ class Dashboard extends React.Component<IProps, IState> {
         super(props);
 
         this.state = {
-            width: 1200,
+            width: WIDTH,
             widgets: [],
             pageLoaded: false
         }
@@ -37,12 +39,12 @@ class Dashboard extends React.Component<IProps, IState> {
     componentDidMount() {
         // get width
         let container = document.getElementById("content-block");
-        // if (container.offsetWidth > this.state.width) {
-        this.setState({
-            width: container.offsetWidth -50,
-            widgets: window.Widgets
-        });
-        // }
+        if (container.offsetWidth > WIDTH) {
+            this.setState({
+                width: container.offsetWidth - 50,
+                widgets: window.Widgets
+            });
+        }
     }
 
     onLayoutChange(layouts: any) {
@@ -104,17 +106,7 @@ class Dashboard extends React.Component<IProps, IState> {
         return (<>
             <div className={`container`}>
 
-                <div className="navigation-block">
-                    <div className="logo"></div>
-                    <div className="navigation-links">
-                        <ul>
-                            <li>Building Management</li>
-                            <li>Energy</li>
-                            <li>Employee Dashboard</li>
-                            <li>Operations</li>
-                        </ul>
-                    </div>
-                </div>
+
 
                 <div className="main-block">
 

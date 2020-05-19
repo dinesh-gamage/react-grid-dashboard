@@ -1,0 +1,27 @@
+.navigation-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-color: #5752c9;
+    color: white;
+    height: 100%;
+    width: 200px;
+
+    .logo {
+        width: 100%;
+    }
+
+    .navigation-links {
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                list-style: none;
+                padding: 8px;
+            }
+        }
+    }
+}

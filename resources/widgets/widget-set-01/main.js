@@ -104,6 +104,60 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Parking.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Parking.scss ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".parking-widget {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: white;\n  box-sizing: border-box; }\n  .parking-widget * {\n    font-family: \"AvenirNext\",sans-serif; }\n  .parking-widget .title {\n    display: flex;\n    width: 100%;\n    height: 10%;\n    justify-content: space-between;\n    align-items: center;\n    box-sizing: border-box;\n    font-size: 20px;\n    color: gray; }\n    .parking-widget .title div .calendar {\n      background-image: url(https://static.iviva.com/images/Adani_UXP/calendar_min_icon.png);\n      width: 20px;\n      height: 20px;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      display: inline-block; }\n    .parking-widget .title div .arrow {\n      display: inline-block;\n      background-position: center center;\n      background-repeat: no-repeat;\n      width: 20px;\n      height: 20px;\n      background-size: contain;\n      background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23.445' height='23.445' viewBox='0 0 23.445 23.445'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23424242;opacity:0.333;%7D%3C/style%3E%3C/defs%3E%3Cpath class='a' d='M23.445,11.722A11.722,11.722,0,1,1,11.722,0,11.72,11.72,0,0,1,23.445,11.722ZM9.643,6.239v5.483H6.291a.568.568,0,0,0-.4.969l5.431,5.4a.562.562,0,0,0,.8,0l5.431-5.4a.567.567,0,0,0-.4-.969H13.8V6.239a.569.569,0,0,0-.567-.567H10.21A.569.569,0,0,0,9.643,6.239Z' transform='translate(23.445) rotate(90)'/%3E%3C/svg%3E\"); }\n      .parking-widget .title div .arrow:nth-child(2) {\n        transform: rotate(180deg);\n        margin-left: 5px; }\n  .parking-widget .body {\n    width: 100%;\n    height: 90%;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    flex-wrap: wrap;\n    margin-top: 25px; }\n    .parking-widget .body div {\n      align-self: center;\n      margin: auto 10px; }\n      .parking-widget .body div .user {\n        background-image: url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"86.765\" height=\"86.765\" viewBox=\"0 0 86.765 86.765\"%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23e33a75;%7D%3C/style%3E%3C/defs%3E%3Cpath class=\"a\" d=\"M77.469,2.25H9.3a9.3,9.3,0,0,0-9.3,9.3V79.719a9.3,9.3,0,0,0,9.3,9.3H77.469a9.3,9.3,0,0,0,9.3-9.3V11.546A9.3,9.3,0,0,0,77.469,2.25ZM46.481,58.028h-9.3v9.3a3.108,3.108,0,0,1-3.1,3.1h-6.2a3.108,3.108,0,0,1-3.1-3.1V23.941a3.108,3.108,0,0,1,3.1-3.1H46.481a18.593,18.593,0,0,1,0,37.185Zm0-24.79h-9.3v12.4h9.3a6.2,6.2,0,0,0,0-12.4Z\" transform=\"translate(0 -2.25)\"/%3E%3C/svg%3E');\n        background-repeat: no-repeat;\n        width: 90px;\n        height: 90px;\n        background-size: contain;\n        display: inline-block;\n        background-position: center; }\n      .parking-widget .body div h1 {\n        font-size: 60px;\n        margin: auto;\n        text-align: center;\n        font-weight: normal; }\n      .parking-widget .body div p {\n        margin: auto;\n        text-align: center; }\n    .parking-widget .body .bottom {\n      width: 100%;\n      font-size: 12px;\n      color: gray;\n      text-align: center; }\n      .parking-widget .body .bottom span {\n        background-image: url(https://static.iviva.com/images/Adani_UXP/green-down-arrow.png);\n        background-position: center;\n        background-repeat: no-repeat;\n        background-size: contain;\n        width: 13px;\n        height: 13px;\n        display: inline-block;\n        margin: auto; }\n    .parking-widget .body .middle {\n      width: 100%;\n      color: #535353;\n      text-align: center;\n      margin: 10px 0; }\n      .parking-widget .body .middle h4 {\n        margin: 10px 0; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PersonalConsumption.scss":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PersonalConsumption.scss ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".personal-widget {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: white;\n  box-sizing: border-box; }\n  .personal-widget * {\n    font-family: \"AvenirNext\", sans-serif; }\n  .personal-widget .title {\n    display: flex;\n    width: 100%;\n    height: 10%;\n    justify-content: space-between;\n    align-items: center;\n    box-sizing: border-box;\n    font-size: 20px;\n    color: gray; }\n    .personal-widget .title div .calendar {\n      background-image: url(https://static.iviva.com/images/Adani_UXP/calendar_min_icon.png);\n      width: 20px;\n      height: 20px;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat;\n      display: inline-block; }\n  .personal-widget .body {\n    width: 100%;\n    height: 90%;\n    box-sizing: border-box;\n    display: flex;\n    justify-content: space-around;\n    flex-wrap: wrap;\n    margin-top: 25px; }\n    .personal-widget .body div {\n      align-self: center;\n      margin: auto 10px; }\n      .personal-widget .body div .user {\n        background-image: url(https://static.iviva.com/images/Adani_UXP/person.png);\n        background-repeat: no-repeat;\n        width: 80px;\n        height: 80px;\n        background-size: contain;\n        background-position: center;\n        display: block;\n        margin: 0; }\n      .personal-widget .body div h1 {\n        font-size: 24px;\n        margin: 10px 0;\n        font-weight: normal;\n        color: gray; }\n      .personal-widget .body div p {\n        margin: 4px 0;\n        font-size: 12px;\n        color: gray; }\n        .personal-widget .body div p:nth-child(2) {\n          font-size: 14px; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Visitor.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Visitor.scss ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".visitor-widget {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n  background-color: white;\n  box-sizing: border-box; }\n  .visitor-widget * {\n    font-family: \"AvenirNext\",sans-serif; }\n  .visitor-widget .title {\n    display: flex;\n    width: 100%;\n    height: 10%;\n    justify-content: space-between;\n    align-items: center;\n    box-sizing: border-box;\n    font-size: 26px;\n    color: gray; }\n    .visitor-widget .title .calendar {\n      background-image: url(https://static.iviva.com/images/Adani_UXP/calendar_min_icon.png);\n      width: 25px;\n      height: 25px;\n      background-size: contain;\n      background-position: center;\n      background-repeat: no-repeat; }\n  .visitor-widget .body {\n    width: 100%;\n    height: 90%;\n    box-sizing: border-box;\n    margin-top: 20px; }\n    .visitor-widget .body p {\n      margin: 15px 0; }\n      .visitor-widget .body p:nth-child(1) {\n        color: red; }\n      .visitor-widget .body p:nth-child(2) {\n        color: red;\n        font-size: 30px; }\n      .visitor-widget .body p:nth-child(3) {\n        color: gray; }\n    .visitor-widget .body .bottom {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      margin-top: 30px; }\n      .visitor-widget .body .bottom div {\n        border-radius: 50px;\n        width: auto;\n        padding: 8px 14px;\n        text-transform: uppercase;\n        font-size: 12px; }\n        .visitor-widget .body .bottom div.heat {\n          background: linear-gradient(45deg, #00127F 30%, #6AFFC2 100%);\n          color: white; }\n        .visitor-widget .body .bottom div.conf {\n          background-color: lightgray; }\n    .visitor-widget .body .small {\n      font-size: 8px;\n      color: gray; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss":
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
@@ -548,8 +602,6 @@ module.exports = content.locals || {};
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const Recharts = __webpack_require__(/*! recharts */ "recharts");
-// import * as Highcharts from 'highcharts';
-// import HighchartsReact from 'highcharts-react-official';
 __webpack_require__(/*! ./CarbonFootPrint.scss */ "./src/components/CarbonFootPrint.scss");
 class CarbonFootPrint extends React.Component {
     render() {
@@ -567,62 +619,6 @@ class CarbonFootPrint extends React.Component {
                 name: '2020', uv: 11
             }
         ];
-        // const options: Highcharts.Options = {
-        //     chart: {
-        //         type: 'area'
-        //     },
-        //     title: {
-        //         text: ''
-        //     },
-        //     xAxis: {
-        //         allowDecimals: false,
-        //         labels: {
-        //             formatter: function () {
-        //                 return this.value.toString(); // clean, unformatted number for year
-        //             }
-        //         },
-        //         accessibility: {
-        //             rangeDescription: 'Range: 2017 to 2020.'
-        //         }
-        //     },
-        //     yAxis: {
-        //         title: {
-        //             text: 'Values'
-        //         },
-        //         labels: {
-        //             formatter: function () {
-        //                 return this.value.toString();
-        //             }
-        //         },
-        //         min: 0,
-        //         max: 20,
-        //     },
-        //     tooltip: {
-        //         pointFormat: '{series.name} had stockpiled <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-        //     },
-        //     plotOptions: {
-        //         area: {
-        //             pointStart: 2016,
-        //             marker: {
-        //                 enabled: false,
-        //                 symbol: 'circle',
-        //                 radius: 2,
-        //                 states: {
-        //                     hover: {
-        //                         enabled: true
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     },
-        //     series: [{
-        //         type: 'area',
-        //         data: [
-        //             null, 10, 13, 9, 11, null
-        //         ]
-        //     }]
-        // }
-        // const chartProps = HighchartsReact.defaultProps;
         return (React.createElement("div", { className: 'carbon-widget' },
             React.createElement("div", { className: "title" },
                 React.createElement("div", null,
@@ -662,6 +658,204 @@ class CarbonFootPrint extends React.Component {
     }
 }
 exports.default = CarbonFootPrint;
+
+
+/***/ }),
+
+/***/ "./src/components/Parking.scss":
+/*!*************************************!*\
+  !*** ./src/components/Parking.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./Parking.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Parking.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/components/Parking.tsx":
+/*!************************************!*\
+  !*** ./src/components/Parking.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "react");
+__webpack_require__(/*! ./Parking.scss */ "./src/components/Parking.scss");
+class VisitorWidget extends React.Component {
+    render() {
+        return (React.createElement("div", { className: 'parking-widget' },
+            React.createElement("div", { className: "title" },
+                React.createElement("div", null,
+                    React.createElement("span", { className: "calendar" }),
+                    " Parking"),
+                React.createElement("div", null,
+                    React.createElement("span", { className: 'arrow' }),
+                    React.createElement("span", { className: "arrow" }))),
+            React.createElement("div", { className: "body" },
+                React.createElement("div", null,
+                    React.createElement("span", { className: "user" })),
+                React.createElement("div", null,
+                    React.createElement("h1", null, "30"),
+                    React.createElement("p", null, "KWH")),
+                React.createElement("div", { className: "middle" },
+                    React.createElement("h4", null, "INR 1000")),
+                React.createElement("div", { className: "bottom" },
+                    React.createElement("span", null),
+                    "\u00A0 0.5% Lesser energy consumed"))));
+    }
+}
+exports.default = VisitorWidget;
+
+
+/***/ }),
+
+/***/ "./src/components/PersonalConsumption.scss":
+/*!*************************************************!*\
+  !*** ./src/components/PersonalConsumption.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./PersonalConsumption.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PersonalConsumption.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/components/PersonalConsumption.tsx":
+/*!************************************************!*\
+  !*** ./src/components/PersonalConsumption.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "react");
+__webpack_require__(/*! ./PersonalConsumption.scss */ "./src/components/PersonalConsumption.scss");
+class PersonalConsumption extends React.Component {
+    render() {
+        return (React.createElement("div", { className: 'personal-widget' },
+            React.createElement("div", { className: "title" },
+                React.createElement("div", null,
+                    React.createElement("span", { className: "calendar" }),
+                    " Energy Consumption per person")),
+            React.createElement("div", { className: "body" },
+                React.createElement("div", null,
+                    React.createElement("div", { className: "user" }),
+                    React.createElement("h1", null, "0.08 kWh"),
+                    React.createElement("p", null, "Floor 14 - Floor 15"),
+                    React.createElement("p", null, "INR 850")),
+                React.createElement("div", null,
+                    React.createElement("div", { className: "user" }),
+                    React.createElement("h1", null, "0.08 kWh"),
+                    React.createElement("p", null, "Floor 14 - Floor 15"),
+                    React.createElement("p", null, "INR 850")))));
+    }
+}
+exports.default = PersonalConsumption;
+
+
+/***/ }),
+
+/***/ "./src/components/Visitor.scss":
+/*!*************************************!*\
+  !*** ./src/components/Visitor.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./Visitor.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Visitor.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/components/Visitor.tsx":
+/*!************************************!*\
+  !*** ./src/components/Visitor.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "react");
+__webpack_require__(/*! ./Visitor.scss */ "./src/components/Visitor.scss");
+class VisitorWidget extends React.Component {
+    render() {
+        return (React.createElement("div", { className: 'visitor-widget' },
+            React.createElement("div", { className: "title" },
+                "Hello, Haran ",
+                React.createElement("span", { className: "calendar" })),
+            React.createElement("div", { className: "body" },
+                React.createElement("p", null, "Your Visitor is Here"),
+                React.createElement("p", null, "Kishore Kumar"),
+                React.createElement("p", null, "for the 10.00 am meeting"),
+                React.createElement("div", { className: "bottom" },
+                    React.createElement("div", { className: "heat" }, "37.5 \u2103 "),
+                    React.createElement("div", null, "snooze"),
+                    React.createElement("div", { className: "conf" }, "acknowledge")),
+                React.createElement("p", { className: "small" }, "POWERED BY LUCY"))));
+    }
+}
+exports.default = VisitorWidget;
 
 
 /***/ }),
@@ -707,14 +901,25 @@ module.exports = content.locals || {};
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
+const Visitor_1 = __webpack_require__(/*! ./components/Visitor */ "./src/components/Visitor.tsx");
+const Parking_1 = __webpack_require__(/*! ./components/Parking */ "./src/components/Parking.tsx");
+const PersonalConsumption_1 = __webpack_require__(/*! ./components/PersonalConsumption */ "./src/components/PersonalConsumption.tsx");
 const CarbonFootPrint_1 = __webpack_require__(/*! ./components/CarbonFootPrint */ "./src/components/CarbonFootPrint.tsx");
+window.registerWidget({ "name": "VisitorWidget", "widget": Visitor_1.default });
+window.registerWidget({ "name": "ParkingWidget", "widget": Parking_1.default });
+window.registerWidget({ "name": "PersonalConsumption", "widget": PersonalConsumption_1.default });
 window.registerWidget({ "name": "CarbonFootPrintWidget", "widget": CarbonFootPrint_1.default });
+// window.registerWidget({ "name":"FloorWiseConsumptionWidget", "widget": FloorWiseConsumption });
 class Layout extends React.Component {
     componentWillMount() {
     }
     render() {
         return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: "content" })));
+            React.createElement("div", { className: "content" },
+                React.createElement(Visitor_1.default, null),
+                React.createElement(Parking_1.default, null),
+                React.createElement(PersonalConsumption_1.default, null),
+                React.createElement(CarbonFootPrint_1.default, null))));
     }
 }
 // // render dom

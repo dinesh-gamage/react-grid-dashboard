@@ -9,7 +9,10 @@ declare global {
     }
 }
 
-interface IProps { }
+interface IProps {
+    scriptFiles: string[],
+}
+
 interface IState {
     width: number,
     widgets: any[],
@@ -19,32 +22,66 @@ interface IState {
 
 class WidgetContainer extends React.Component<IProps, IState> {
 
+    private widgetContainer: React.RefObject<HTMLDivElement>;
+    private Width = 1200;
+
     constructor(props: IProps) {
         super(props);
 
+        this.widgetContainer = React.createRef();
+
         this.state = {
-            width: 1200,
+            width: this.Width,
             widgets: [],
             pageLoaded: false
         }
 
         this.onLayoutChange = this.onLayoutChange.bind(this);
         this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
+        this.getNewlyRegisteredWidgets = this.getNewlyRegisteredWidgets.bind(this);
     }
+
 
     componentDidMount() {
         // get width
-        let container = document.getElementById("widget-container");
+        let width = this.widgetContainer.current.clientWidth;
+        if (width > this.Width) {
+            this.setState({ width: width })
+        }
 
+        this.loadWidgetScripts(this.props.scriptFiles, this.getNewlyRegisteredWidgets);
+    }
+
+    // load scripts functions
+    loadWidgetScripts(scriptFiles: any[], callback?: any) {
+
+        scriptFiles.map((scriptFile, i) => {
+            console.log(scriptFile);
+            this.loadScriptFile(scriptFile, callback);
+        })
+    }
+
+    loadScriptFile(path: string, callback?: any) {
+        var script = document.createElement('script');
+
+        script.onload = function () {
+            if (typeof callback == "function") {
+                callback();
+            }
+        };
+
+        script.setAttribute('src', path);
+        document.head.appendChild(script);
+    }
+
+    // get newly registered widgets
+    getNewlyRegisteredWidgets() {
         let widgets = this.loadFromLocalStorage();
+        console.log("__w");
         console.log(widgets);
-        console.log(window.Widgets);
-        // if (container.offsetWidth > this.state.width) {
         this.setState({
-            width: container.offsetWidth - 50,
             widgets: widgets
         });
-        // }
     }
 
 
@@ -65,10 +102,9 @@ class WidgetContainer extends React.Component<IProps, IState> {
                 }
             })
 
-            // merege config with layout
+            // merge config with layout
             // layout options will be replaced with configs
             let merged = { ...layout, ...configs };
-            // console.log(merged);
             layout = merged;
         }
 
@@ -140,6 +176,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
         return returnWidgets;
     }
 
+    // save layout to local storage
     onLayoutChange(layouts: any) {
         // get widgets
         let Widgets = this.state.widgets;
@@ -188,12 +225,20 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
     render() {
 
+        let layout = [
+            { x: 0, y: 0, w: 6, h: 8, i: "0" },
+            { x: 6, y: 0, w: 6, h: 8, i: "1" },
+            { x: 0, y: 8, w: 6, h: 8, i: "2" },
+            { x: 6, y: 8, w: 6, h: 8, i: "3" }
+        ]
+
         return (<>
-            <div className="widget-container" id="widget-container">
+            <div className="widget-container" ref={this.widgetContainer} >
                 <GridLayout className="layout"
+                    // layout={layout}
                     cols={12}
                     rowHeight={30}
-                    width={this.state.width}
+                    width={1200}
                     isResizable={true}
                     isDraggable={true}
                     autoSize={false}
@@ -202,8 +247,9 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
                     {
                         this.state.widgets.map((widget: any, key: number) => this.renderWidget(widget, key))
-                    }
 
+                    }
+                    
                 </GridLayout>
             </div>
         </>);

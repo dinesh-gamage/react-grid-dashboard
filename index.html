@@ -24,6 +24,8 @@
 
     <!-- Main -->
 
+    <script src="./dist/main.js"></script>
+
     <script>
 
         let scripts = [
@@ -34,56 +36,13 @@
 
         // register widgets
         function registerWidget(widgetConfig) {
-            console.log("registering widget");
-            console.log(widgetConfig);
             window.Widgets.push(widgetConfig);
         }
 
-
-        // load scripts functions
-        const loadWidgets = (widgets, callback) => {
-
-            widgets.map((widget, i) => {
-                console.log(widget);
-                loadScriptFile(widget);
-            })
-
-            if (typeof callback == "function") {
-                callback();
-            }
-        }
-
-        const loadScriptFile = (path, callback) => {
-            var script = document.createElement('script');
-
-            if (script.readyState) {  // only required for IE <9
-                script.onreadystatechange = function () {
-                    if (script.readyState === "loaded" || script.readyState === "complete") {
-                        script.onreadystatechange = null;
-
-                        if (typeof callback == "function") {
-                            callback();
-                        }
-                    }
-                };
-            } else {  //Others
-                script.onload = function () {
-                    if (typeof callback == "function") {
-                        callback();
-                    }
-                };
-            }
-
-            script.setAttribute('src', path);
-            document.body.appendChild(script);
-        }
-
-        // load widget scripts
-        loadWidgets(scripts, loadScriptFile.bind(this, "./dist/main.js", () => {
-            renderDashboard("root");
-        }))
+        renderDashboard("root", scripts);
 
     </script>
+
 
 
 </body>

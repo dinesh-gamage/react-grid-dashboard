@@ -7478,7 +7478,7 @@ class UXPDashboard extends React.Component {
                         React.createElement("div", { className: "toolbar-block" },
                             React.createElement(ToolBar_1.default, null)),
                         React.createElement("div", { className: "widget-container-block" },
-                            React.createElement(WidgetContainer_1.default, null)))))));
+                            React.createElement(WidgetContainer_1.default, { scriptFiles: this.props.scriptFiles })))))));
     }
 }
 exports.default = UXPDashboard;
@@ -7531,26 +7531,50 @@ __webpack_require__(/*! ./WidgetContainer.scss */ "./src/components/WidgetContai
 class WidgetContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.Width = 1200;
+        this.widgetContainer = React.createRef();
         this.state = {
-            width: 1200,
+            width: this.Width,
             widgets: [],
             pageLoaded: false
         };
         this.onLayoutChange = this.onLayoutChange.bind(this);
         this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
+        this.getNewlyRegisteredWidgets = this.getNewlyRegisteredWidgets.bind(this);
     }
     componentDidMount() {
         // get width
-        let container = document.getElementById("widget-container");
+        let width = this.widgetContainer.current.clientWidth;
+        if (width > this.Width) {
+            this.setState({ width: width });
+        }
+        this.loadWidgetScripts(this.props.scriptFiles, this.getNewlyRegisteredWidgets);
+    }
+    // load scripts functions
+    loadWidgetScripts(scriptFiles, callback) {
+        scriptFiles.map((scriptFile, i) => {
+            console.log(scriptFile);
+            this.loadScriptFile(scriptFile, callback);
+        });
+    }
+    loadScriptFile(path, callback) {
+        var script = document.createElement('script');
+        script.onload = function () {
+            if (typeof callback == "function") {
+                callback();
+            }
+        };
+        script.setAttribute('src', path);
+        document.head.appendChild(script);
+    }
+    // get newly registered widgets
+    getNewlyRegisteredWidgets() {
         let widgets = this.loadFromLocalStorage();
+        console.log("__w");
         console.log(widgets);
-        console.log(window.Widgets);
-        // if (container.offsetWidth > this.state.width) {
         this.setState({
-            width: container.offsetWidth - 50,
             widgets: widgets
         });
-        // }
     }
     // load widgets
     getLayoutUsingConfigs(widget) {
@@ -7566,10 +7590,9 @@ class WidgetContainer extends React.Component {
                     delete configs[key];
                 }
             });
-            // merege config with layout
+            // merge config with layout
             // layout options will be replaced with configs
             let merged = Object.assign(Object.assign({}, layout), configs);
-            // console.log(merged);
             layout = merged;
         }
         return layout;
@@ -7625,6 +7648,7 @@ class WidgetContainer extends React.Component {
         });
         return returnWidgets;
     }
+    // save layout to local storage
     onLayoutChange(layouts) {
         // get widgets
         let Widgets = this.state.widgets;
@@ -7654,9 +7678,17 @@ class WidgetContainer extends React.Component {
             React.createElement(WidgetElement, null)));
     }
     render() {
+        let layout = [
+            { x: 0, y: 0, w: 6, h: 8, i: "0" },
+            { x: 6, y: 0, w: 6, h: 8, i: "1" },
+            { x: 0, y: 8, w: 6, h: 8, i: "2" },
+            { x: 6, y: 8, w: 6, h: 8, i: "3" }
+        ];
         return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: "widget-container", id: "widget-container" },
-                React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: this.state.width, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))));
+            React.createElement("div", { className: "widget-container", ref: this.widgetContainer },
+                React.createElement(GridLayout, { className: "layout", 
+                    // layout={layout}
+                    cols: 12, rowHeight: 30, width: 1200, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))));
     }
 }
 exports.default = WidgetContainer;
@@ -7709,8 +7741,8 @@ const ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 __webpack_require__(/*! ./index.scss */ "./src/index.scss");
 // components
 const UXPDashboard_1 = __webpack_require__(/*! ./components/UXPDashboard */ "./src/components/UXPDashboard.tsx");
-window.renderDashboard = (root) => {
-    ReactDOM.render(React.createElement(UXPDashboard_1.default, null), document.getElementById('root'));
+window.renderDashboard = (root, scriptFiles) => {
+    ReactDOM.render(React.createElement(UXPDashboard_1.default, { scriptFiles: scriptFiles }), document.getElementById('root'));
 };
 
 

@@ -8,6 +8,6 @@ import "./index.scss";
 import UXPDashboard from "./components/UXPDashboard";
 
 
-(window as any).renderDashboard = (root: string) => {
-    ReactDOM.render(<UXPDashboard />,document.getElementById('root'));
+(window as any).renderDashboard = (root: string, scriptFiles:string[]) => {
+    ReactDOM.render(<UXPDashboard scriptFiles={scriptFiles} />,document.getElementById('root'));
 }

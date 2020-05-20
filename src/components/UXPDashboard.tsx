@@ -6,7 +6,10 @@ import ToolBar from './ToolBar/ToolBar';
 import WidgetContainer from './WidgetContainer/WidgetContainer';
 
 
-interface IProps { }
+interface IProps { 
+    scriptFiles: string[]
+}
+
 interface IState { }
 
 class UXPDashboard extends React.Component<IProps, IState> {
@@ -35,7 +38,7 @@ class UXPDashboard extends React.Component<IProps, IState> {
                         </div>
 
                         <div className="widget-container-block">
-                            <WidgetContainer />
+                            <WidgetContainer scriptFiles={this.props.scriptFiles} />
                         </div>
                     </div>
                 </div>

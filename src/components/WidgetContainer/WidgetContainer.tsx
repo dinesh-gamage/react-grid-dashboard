@@ -225,17 +225,10 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
     render() {
 
-        let layout = [
-            { x: 0, y: 0, w: 6, h: 8, i: "0" },
-            { x: 6, y: 0, w: 6, h: 8, i: "1" },
-            { x: 0, y: 8, w: 6, h: 8, i: "2" },
-            { x: 6, y: 8, w: 6, h: 8, i: "3" }
-        ]
-
+       
         return (<>
             <div className="widget-container" ref={this.widgetContainer} >
                 <GridLayout className="layout"
-                    // layout={layout}
                     cols={12}
                     rowHeight={30}
                     width={1200}
@@ -249,7 +242,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
                         this.state.widgets.map((widget: any, key: number) => this.renderWidget(widget, key))
 
                     }
-                    
+
                 </GridLayout>
             </div>
         </>);

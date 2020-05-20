@@ -7678,17 +7678,9 @@ class WidgetContainer extends React.Component {
             React.createElement(WidgetElement, null)));
     }
     render() {
-        let layout = [
-            { x: 0, y: 0, w: 6, h: 8, i: "0" },
-            { x: 6, y: 0, w: 6, h: 8, i: "1" },
-            { x: 0, y: 8, w: 6, h: 8, i: "2" },
-            { x: 6, y: 8, w: 6, h: 8, i: "3" }
-        ];
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "widget-container", ref: this.widgetContainer },
-                React.createElement(GridLayout, { className: "layout", 
-                    // layout={layout}
-                    cols: 12, rowHeight: 30, width: 1200, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))));
+                React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: 1200, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))));
     }
 }
 exports.default = WidgetContainer;

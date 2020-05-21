@@ -90,22 +90,25 @@ class WidgetContainer extends React.Component<IProps, IState> {
         let layout = { x: 0, y: 0, w: 6, h: 8, i: "0", isDraggable: true, isResizable: true };
 
         // check for configurations 
-        if (widget.hasOwnProperty("configs")) {
+        if (widget.hasOwnProperty("configs")
+            && widget.configs.hasOwnProperty("layout")) {
             // console.log("widget has configs");
-            let configs = widget["configs"];
-            let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW"];
+            let configs = widget.configs;
+            let layoutConfig = configs.layout;
+            let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW", "static"];
 
             // remove additional configurations
-            Object.keys(configs).map(key => {
+            Object.keys(layoutConfig).map(key => {
                 if (sampleConfigKeys.indexOf(key) == -1) {
-                    delete configs[key];
+                    delete layoutConfig[key];
                 }
             })
 
             // merge config with layout
             // layout options will be replaced with configs
-            let merged = { ...layout, ...configs };
+            let merged = { ...layout, ...layoutConfig };
             layout = merged;
+
         }
 
         return layout;
@@ -159,14 +162,15 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
 
             if (lastLayout !== null) {
-                layout.y = lastLayout.y + lastLayout.h + 1;
-                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + 6) <= 12) {
-                    layout.x = lastLayout.x + lastLayout.w + 1;
+                layout.y = lastLayout.y + lastLayout.h;
+                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
+                    layout.x = lastLayout.x + lastLayout.w;
                     layout.y = lastLayout.y
                 }
             }
 
             layout.i = returnWidgets.length.toString();
+
             newWidget.layout = layout;
             newWidget.key = returnWidgets.length;
 
@@ -208,8 +212,21 @@ class WidgetContainer extends React.Component<IProps, IState> {
     renderWidget(widget: any, key: number) {
         let WidgetElement = widget.widget;
 
+        let styles: any = {}
+        if (widget.hasOwnProperty("configs") && widget.configs.hasOwnProperty("container")) {
+            let containerConfig = widget.configs.container;
+
+            if (containerConfig.hasOwnProperty("background")) {
+                styles.background = containerConfig.background;
+
+                if(containerConfig.background == "transparent"){
+                styles.boxShadow = "none";
+                }
+            }
+        }
+
         return (
-            <div className="layout-item" key={key} data-grid={widget.layout}>
+            <div className="layout-item" style={styles} key={key} data-grid={widget.layout}>
                 {/* {
                     this.state.showEditDashboard ? 
                     <div className="overlay">
@@ -225,7 +242,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
     render() {
 
-       
+
         return (<>
             <div className="widget-container" ref={this.widgetContainer} >
                 <GridLayout className="layout"

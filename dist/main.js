@@ -177,7 +177,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit;\n  background-color: red; }\n  .widget-container .layout div.layout-item {\n    background: white !important;\n    padding: 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n", ""]);
+exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7580,19 +7580,21 @@ class WidgetContainer extends React.Component {
     getLayoutUsingConfigs(widget) {
         let layout = { x: 0, y: 0, w: 6, h: 8, i: "0", isDraggable: true, isResizable: true };
         // check for configurations 
-        if (widget.hasOwnProperty("configs")) {
+        if (widget.hasOwnProperty("configs")
+            && widget.configs.hasOwnProperty("layout")) {
             // console.log("widget has configs");
-            let configs = widget["configs"];
-            let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW"];
+            let configs = widget.configs;
+            let layoutConfig = configs.layout;
+            let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW", "static"];
             // remove additional configurations
-            Object.keys(configs).map(key => {
+            Object.keys(layoutConfig).map(key => {
                 if (sampleConfigKeys.indexOf(key) == -1) {
-                    delete configs[key];
+                    delete layoutConfig[key];
                 }
             });
             // merge config with layout
             // layout options will be replaced with configs
-            let merged = Object.assign(Object.assign({}, layout), configs);
+            let merged = Object.assign(Object.assign({}, layout), layoutConfig);
             layout = merged;
         }
         return layout;
@@ -7635,9 +7637,9 @@ class WidgetContainer extends React.Component {
                 lastLayout = last.layout;
             }
             if (lastLayout !== null) {
-                layout.y = lastLayout.y + lastLayout.h + 1;
-                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + 6) <= 12) {
-                    layout.x = lastLayout.x + lastLayout.w + 1;
+                layout.y = lastLayout.y + lastLayout.h;
+                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
+                    layout.x = lastLayout.x + lastLayout.w;
                     layout.y = lastLayout.y;
                 }
             }
@@ -7674,7 +7676,17 @@ class WidgetContainer extends React.Component {
     // render
     renderWidget(widget, key) {
         let WidgetElement = widget.widget;
-        return (React.createElement("div", { className: "layout-item", key: key, "data-grid": widget.layout },
+        let styles = {};
+        if (widget.hasOwnProperty("configs") && widget.configs.hasOwnProperty("container")) {
+            let containerConfig = widget.configs.container;
+            if (containerConfig.hasOwnProperty("background")) {
+                styles.background = containerConfig.background;
+                if (containerConfig.background == "transparent") {
+                    styles.boxShadow = "none";
+                }
+            }
+        }
+        return (React.createElement("div", { className: "layout-item", style: styles, key: key, "data-grid": widget.layout },
             React.createElement(WidgetElement, null)));
     }
     render() {

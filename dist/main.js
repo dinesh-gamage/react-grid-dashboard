@@ -177,7 +177,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n", ""]);
+exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 30px 20px 20px 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: block; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n    .widget-container .layout div.layout-item .layout-toolbar {\n      width: 100%;\n      height: 30px;\n      display: none;\n      align-items: center;\n      justify-content: flex-end;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 499; }\n      .widget-container .layout div.layout-item .layout-toolbar .tb-btn {\n        width: 18px;\n        height: 18px;\n        background-color: white;\n        cursor: pointer;\n        position: relative;\n        margin: 0 8px; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings {\n          background-image: url(\"/assets/images/settings.svg\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings:hover .tb-dropdown {\n            display: flex; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown {\n          width: auto;\n          min-width: 100px;\n          height: auto;\n          border-radius: 8px;\n          position: absolute;\n          top: 0;\n          right: 0;\n          z-index: 500;\n          display: none;\n          flex-wrap: nowrap;\n          align-items: center;\n          justify-content: space-between;\n          background-color: transparent; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul {\n            margin: 0;\n            margin-top: 30px;\n            padding: 8px;\n            list-style: none;\n            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n            background-color: white; }\n            .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li {\n              padding: 8px 20px;\n              border-bottom: 1px solid lightgray;\n              font-size: 11px; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:last-child {\n                border-bottom: none; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:hover {\n                background-color: lightgray; }\n    .widget-container .layout div.layout-item:hover .layout-toolbar {\n      display: flex; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7631,6 +7631,10 @@ class WidgetContainer extends React.Component {
         });
         // generate layout for new widgets
         newWidgets.map((newWidget, i) => {
+            if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
+                let newProps = newWidget.configs.props;
+                console.log(newProps);
+            }
             let layout = this.getLayoutUsingConfigs(newWidget);
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
                 let last = returnWidgets[returnWidgets.length - 1];
@@ -7687,6 +7691,13 @@ class WidgetContainer extends React.Component {
             }
         }
         return (React.createElement("div", { className: "layout-item", style: styles, key: key, "data-grid": widget.layout },
+            React.createElement("div", { className: "layout-toolbar" },
+                React.createElement("div", { className: "tb-btn settings" },
+                    React.createElement("div", { className: "tb-dropdown" },
+                        React.createElement("ul", null,
+                            React.createElement("li", null, "Configurations"),
+                            React.createElement("li", null, "Duplicate"),
+                            React.createElement("li", null, "Remove"))))),
             React.createElement(WidgetElement, null)));
     }
     render() {

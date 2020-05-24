@@ -153,6 +153,12 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
         // generate layout for new widgets
         newWidgets.map((newWidget, i) => {
+
+            if(newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
+                let newProps = newWidget.configs.props;
+                console.log(newProps);
+            }
+
             let layout = this.getLayoutUsingConfigs(newWidget);
 
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
@@ -227,14 +233,18 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
         return (
             <div className="layout-item" style={styles} key={key} data-grid={widget.layout}>
-                {/* {
-                    this.state.showEditDashboard ? 
-                    <div className="overlay">
-                        <button className="remove-widget" onClick={() => this.removeWidget(key)} >Remove</button>
-                    </div>
-                    :""
-                } */}
+                <div className="layout-toolbar">
+                    <div className="tb-btn settings">
 
+                        <div className="tb-dropdown">
+                            <ul>
+                                <li>Configurations</li>
+                                <li>Duplicate</li>
+                                <li>Remove</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <WidgetElement />
             </div>
         );

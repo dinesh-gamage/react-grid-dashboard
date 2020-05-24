@@ -7570,19 +7570,27 @@ class WidgetContainer extends React.Component {
     // get newly registered widgets
     getNewlyRegisteredWidgets() {
         let widgets = this.loadFromLocalStorage();
-        console.log("__w");
-        console.log(widgets);
         this.setState({
             widgets: widgets
         });
     }
     // load widgets
     getLayoutUsingConfigs(widget) {
-        let layout = { x: 0, y: 0, w: 6, h: 8, i: "0", isDraggable: true, isResizable: true };
+        let _id = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
+        let layout = {
+            x: 0,
+            y: 0,
+            w: 6,
+            h: 8,
+            i: "0",
+            isDraggable: true,
+            isResizable: true,
+            static: false,
+            _id: _id
+        };
         // check for configurations 
         if (widget.hasOwnProperty("configs")
             && widget.configs.hasOwnProperty("layout")) {
-            // console.log("widget has configs");
             let configs = widget.configs;
             let layoutConfig = configs.layout;
             let sampleConfigKeys = ["w", "h", "isDraggable", "isResizable", "maxH", "maxW", "minH", "minW", "static"];
@@ -7601,39 +7609,43 @@ class WidgetContainer extends React.Component {
     }
     loadFromLocalStorage() {
         let savedWidgets = JSON.parse(localStorage.getItem("saved_widgets"));
+        // todo:: get saved widgets from database
         if (savedWidgets == null)
             savedWidgets = [];
         let newWidgets = [];
         let returnWidgets = [];
         let lastLayout = null;
+        // get registered widgets
         let __widgets = window.Widgets;
         __widgets.map(widget => {
-            let savedWidget = savedWidgets.find((sw) => sw.name == widget.name);
-            console.log(savedWidget);
-            if (typeof savedWidget == "undefined") {
+            let savedWidgetInstances = savedWidgets.filter((sw) => sw.name == widget.name);
+            if (savedWidgetInstances.length === 0) {
                 newWidgets.push(widget);
             }
             else {
-                // get layout
-                let savedLayout = savedWidget.layout;
-                widget.layout = savedLayout;
-                widget.key = returnWidgets.length; // reset key  // parseInt(savedWidget.key);
-                returnWidgets.push(widget);
-                if (lastLayout === null) {
-                    lastLayout = savedLayout;
-                }
-                else {
-                    if (lastLayout.x < savedLayout.x || lastLayout.y < savedLayout.y) {
+                // loop through instances
+                savedWidgetInstances.map((savedWidget) => {
+                    // get layout
+                    let savedLayout = savedWidget.layout;
+                    widget = Object.assign(Object.assign({}, widget), savedWidget);
+                    returnWidgets.push(widget);
+                    if (lastLayout === null) {
                         lastLayout = savedLayout;
                     }
-                }
+                    else {
+                        if (lastLayout.x < savedLayout.x || lastLayout.y < savedLayout.y) {
+                            lastLayout = savedLayout;
+                        }
+                    }
+                });
             }
         });
         // generate layout for new widgets
         newWidgets.map((newWidget, i) => {
+            let hasConfigured = true;
             if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
                 let newProps = newWidget.configs.props;
-                console.log(newProps);
+                hasConfigured = false;
             }
             let layout = this.getLayoutUsingConfigs(newWidget);
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
@@ -7648,8 +7660,9 @@ class WidgetContainer extends React.Component {
                 }
             }
             layout.i = returnWidgets.length.toString();
+            newWidget.key = layout.i;
             newWidget.layout = layout;
-            newWidget.key = returnWidgets.length;
+            newWidget._id = layout._id;
             returnWidgets.push(newWidget);
         });
         return returnWidgets;
@@ -7659,8 +7672,7 @@ class WidgetContainer extends React.Component {
         // get widgets
         let Widgets = this.state.widgets;
         Widgets.map((widget) => {
-            let _layout = layouts.find((layout) => layout.i == widget.key.toString());
-            // console.log(_layout.i);
+            let _layout = layouts.find((layout) => layout.i == widget.key);
             // _layout cannot be undefined at this point
             if (typeof _layout != "undefined") {
                 widget.layout = _layout;

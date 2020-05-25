@@ -913,7 +913,7 @@ window.registerWidget({
     "widget": Visitor_1.default,
     "configs": {
         "props": [
-            { "name": "Name", "type": "string", "required": false }
+            { "name": "Name", "type": "string", "label": "Name" }
         ]
     }
 });
@@ -927,10 +927,10 @@ window.registerWidget({
     "widget": LinkWidgetTemplate_1.default,
     "configs": {
         "props": [
-            { "name": "link", "type": "string", "required": true },
-            { "name": "imageSrc", "type": "string", "required": true },
-            { "name": "linkTitle", "type": "string", "required": true },
-            { "name": "background", "type": "string", "required": false }
+            { "name": "link", "label": "Link", "type": "string", "attr": { "required": true } },
+            { "name": "imageSrc", "type": "string", "label": "Image Src", "attr": { "required": true } },
+            { "name": "linkTitle", "type": "string", "label": "Title", "attr": { "required": true } },
+            { "name": "background", "type": "string", "label": "Background Color", "attr": { "required": false } }
         ]
     }
 });

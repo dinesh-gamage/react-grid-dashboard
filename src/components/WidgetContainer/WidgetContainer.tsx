@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as GridLayout from "react-grid-layout";
 import './WidgetContainer.scss';
+import DynamicForm from '../DynamicForm/DynamicForm';
+import { func } from 'prop-types';
 
 
 declare global {
@@ -32,62 +34,47 @@ interface IWidgetInstance {
     widget: any,
     props?: any,
     layout: ILayout,
-    configs?: any
+    configs?: any,
+    hasConfigured: boolean
 }
 
 interface IProps {
     scriptFiles: string[],
 }
 
-interface IState {
-    width: number,
-    widgets: any[],
-    pageLoaded: boolean
-}
 
 
-class WidgetContainer extends React.Component<IProps, IState> {
+function WidgetContainer(props: IProps) {
 
-    private widgetContainer: React.RefObject<HTMLDivElement>;
-    private Width = 1200;
+    let Width = 1200;
 
-    constructor(props: IProps) {
-        super(props);
+    const [width, setWidth] = React.useState(Width);
+    const [widgets, setWidgets] = React.useState([])
+    const [showConfigModel, setShowConfigModal] = React.useState(false);
+    const [editInstance, setEditInstance] = React.useState(null);
 
-        this.widgetContainer = React.createRef();
+    // refs 
+    const widgetContainer = React.useRef(null);
 
-        this.state = {
-            width: this.Width,
-            widgets: [],
-            pageLoaded: false
+    React.useEffect(() => {
+        let width = widgetContainer.current.clientWidth;
+        if (width > Width) {
+            setWidth(width);
         }
 
-        this.onLayoutChange = this.onLayoutChange.bind(this);
-        this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
-        this.getNewlyRegisteredWidgets = this.getNewlyRegisteredWidgets.bind(this);
-    }
+        loadWidgetScripts(props.scriptFiles, getNewlyRegisteredWidgets);
+    }, [])
 
-
-    componentDidMount() {
-        // get width
-        let width = this.widgetContainer.current.clientWidth;
-        if (width > this.Width) {
-            this.setState({ width: width })
-        }
-
-        this.loadWidgetScripts(this.props.scriptFiles, this.getNewlyRegisteredWidgets);
-    }
 
     // load scripts functions
-    loadWidgetScripts(scriptFiles: any[], callback?: any) {
+    function loadWidgetScripts(scriptFiles: any[], callback?: any) {
 
         scriptFiles.map((scriptFile, i) => {
-            console.log(scriptFile);
-            this.loadScriptFile(scriptFile, callback);
+            loadScriptFile(scriptFile, callback);
         })
     }
 
-    loadScriptFile(path: string, callback?: any) {
+    function loadScriptFile(path: string, callback?: any) {
         var script = document.createElement('script');
 
         script.onload = function () {
@@ -101,25 +88,22 @@ class WidgetContainer extends React.Component<IProps, IState> {
     }
 
     // get newly registered widgets
-    getNewlyRegisteredWidgets() {
-        let widgets = this.loadFromLocalStorage();
-        this.setState({
-            widgets: widgets
-        });
+    function getNewlyRegisteredWidgets() {
+        let widgets = loadFromLocalStorage();
+        setWidgets(widgets);
     }
 
-
     // load widgets
-    getLayoutUsingConfigs(widget: any) {
-        let _id:string = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
-        let layout:ILayout = { 
-            x: 0, 
-            y: 0, 
-            w: 6, 
-            h: 8, 
-            i: "0", 
-            isDraggable: true, 
-            isResizable: true, 
+    function getLayoutUsingConfigs(widget: any) {
+        let _id: string = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
+        let layout: ILayout = {
+            x: 0,
+            y: 0,
+            w: 6,
+            h: 8,
+            i: "0",
+            isDraggable: true,
+            isResizable: true,
             static: false,
             _id: _id
         };
@@ -149,7 +133,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
         return layout;
     }
 
-    loadFromLocalStorage() {
+    function loadFromLocalStorage() {
         let savedWidgets: IWidgetInstance[] = JSON.parse(localStorage.getItem("saved_widgets"));
 
         // todo:: get saved widgets from database
@@ -157,7 +141,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
         let newWidgets: IWidgetInstance[] = [];
         let returnWidgets: IWidgetInstance[] = [];
-        let lastLayout:ILayout = null;
+        let lastLayout: ILayout = null;
 
         // get registered widgets
         let __widgets = window.Widgets;
@@ -176,7 +160,7 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
                     // get layout
                     let savedLayout = savedWidget.layout
-                    widget = {...widget, ...savedWidget}
+                    widget = { ...widget, ...savedWidget }
 
                     returnWidgets.push(widget);
 
@@ -196,15 +180,17 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
 
         // generate layout for new widgets
-        newWidgets.map((newWidget:IWidgetInstance, i:number) => {
+        newWidgets.map((newWidget: IWidgetInstance, i: number) => {
 
             let hasConfigured = true;
             if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
-                let newProps = newWidget.configs.props;
+                newWidget.configs.props.map((prop: any) => {
+                    prop.value = ""
+                })
                 hasConfigured = false;
             }
 
-            let layout = this.getLayoutUsingConfigs(newWidget);
+            let layout = getLayoutUsingConfigs(newWidget);
 
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
                 let last = returnWidgets[returnWidgets.length - 1];
@@ -222,9 +208,11 @@ class WidgetContainer extends React.Component<IProps, IState> {
 
 
             layout.i = returnWidgets.length.toString();
+
             newWidget.key = layout.i;
             newWidget.layout = layout;
             newWidget._id = layout._id;
+            newWidget.hasConfigured = hasConfigured;
 
             returnWidgets.push(newWidget);
         })
@@ -233,9 +221,9 @@ class WidgetContainer extends React.Component<IProps, IState> {
     }
 
     // save layout to local storage
-    onLayoutChange(layouts: any) {
+    function onLayoutChange(layouts: any) {
         // get widgets
-        let Widgets = this.state.widgets;
+        let Widgets = widgets;
         Widgets.map((widget: any) => {
 
             let _layout = layouts.find((layout: any) => layout.i == widget.key);
@@ -245,22 +233,81 @@ class WidgetContainer extends React.Component<IProps, IState> {
             }
         });
 
-        this.setState({
-            widgets: Widgets
-        }, () => {
-            this.saveToLocalStorage();
-        })
+
+        setWidgets(Widgets);
+        saveToLocalStorage();
     }
 
-    saveToLocalStorage() {
-        // console.log("saving to local storage")
-        let widgets = this.state.widgets;
+    function saveToLocalStorage() {
         localStorage.setItem("saved_widgets", JSON.stringify(widgets));
     }
 
 
+    // configure
+    function onCloseModel() {
+        setShowConfigModal(false);
+        setEditInstance(null);
+    }
+
+    function onSaveChanges(submittedData: any) {
+        console.log("Saving Widget Configurations");
+        let _editInstance = editInstance;
+        let defaultProps = _editInstance.configs.props;
+        defaultProps.map((prop: any) => {
+            prop.value = submittedData[prop.name];
+        })
+
+        _editInstance.configs.props = defaultProps;
+        _editInstance.props = submittedData;
+        _editInstance.hasConfigured = true;
+
+        setEditInstance(_editInstance);
+
+        // update state
+        let _widgets = [...widgets];
+        _widgets.map((widget: any) => {
+            if (widget._id === editInstance._id) {
+                widget = editInstance;
+            }
+        })
+
+        setWidgets(_widgets);
+        saveToLocalStorage();
+        onCloseModel();
+    }
+
+
+    function renderConfigModel() {
+
+        let formStructure = editInstance.configs.props;
+
+        return (<>
+            <div className="modal">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <div className="mh-title">Edit Configurations</div>
+                        <div className="modal-close" onClick={onCloseModel}></div>
+                    </div>
+
+                    <div className="modal-body">
+                        <DynamicForm
+                            formStructure={formStructure}
+                            onSubmit={onSaveChanges}
+                            onCancel={onCloseModel}
+                        />
+                    </div>
+
+                </div>
+            </div>
+        </>);
+
+    }
+
+
+
+
     // render
-    renderWidget(widget: any, key: number) {
+    function renderWidget(widget: any, key: number) {
         let WidgetElement = widget.widget;
 
         let styles: any = {}
@@ -276,50 +323,87 @@ class WidgetContainer extends React.Component<IProps, IState> {
             }
         }
 
-        return (
-            <div className="layout-item" style={styles} key={key} data-grid={widget.layout}>
-                <div className="layout-toolbar">
-                    <div className="tb-btn settings">
+        let showConfigOption = (widget.hasOwnProperty("configs") && widget.configs.hasOwnProperty("props"));
 
-                        <div className="tb-dropdown">
-                            <ul>
-                                <li>Configurations</li>
-                                <li>Duplicate</li>
-                                <li>Remove</li>
-                            </ul>
+        return (
+            <div className="layout-item" style={styles} key={key} data-grid={widget.layout} data-instance-id={widget._id}>
+                {
+                    widget.hasConfigured ?
+                        <>
+                            <div className="layout-toolbar">
+                                <div className="tb-btn settings">
+
+                                    <div className="tb-dropdown">
+                                        <ul>
+                                            {
+                                                showConfigOption ?
+                                                    <li onClick={() => {
+                                                        setShowConfigModal(true);
+                                                        setEditInstance(widget)
+                                                    }}>
+                                                        Configurations
+                                                    </li>
+                                                    :
+                                                    ""
+                                            }
+                                            <li>Duplicate</li>
+                                            <li>Remove</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <WidgetElement {...widget.props} />
+                        </>
+                        :
+
+                        <div className="layout-not-configured">
+                            <p className="message">Widget Not Configured</p>
+                            <button className="config-widget-btn"
+                                onClick={() => {
+                                    setShowConfigModal(true);
+                                    setEditInstance(widget)
+                                }}
+                            >
+                                <span className="icon"></span> Configure
+                            </button>
                         </div>
-                    </div>
-                </div>
-                <WidgetElement />
+                }
+
             </div>
         );
     }
 
-    render() {
+    return (<>
+        <div className="widget-container" ref={widgetContainer} >
+            <GridLayout className="layout"
+                cols={12}
+                rowHeight={30}
+                width={1200}
+                isResizable={true}
+                isDraggable={true}
+                autoSize={false}
+                onLayoutChange={onLayoutChange}
+            >
 
+                {
+                    widgets.map((widget: any, key: number) => renderWidget(widget, key))
 
-        return (<>
-            <div className="widget-container" ref={this.widgetContainer} >
-                <GridLayout className="layout"
-                    cols={12}
-                    rowHeight={30}
-                    width={1200}
-                    isResizable={true}
-                    isDraggable={true}
-                    autoSize={false}
-                    onLayoutChange={this.onLayoutChange}
-                >
+                }
 
-                    {
-                        this.state.widgets.map((widget: any, key: number) => this.renderWidget(widget, key))
+            </GridLayout>
+        </div>
 
-                    }
+        {
+            showConfigModel == true && editInstance != null ?
+                renderConfigModel()
+                :
+                ""
+        }
 
-                </GridLayout>
-            </div>
-        </>);
-    }
+    </>);
 
 }
+
+
 
 export default WidgetContainer;

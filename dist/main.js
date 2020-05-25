@@ -148,6 +148,24 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/DynamicForm/DynamicForm.scss":
+/*!**********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/DynamicForm/DynamicForm.scss ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".form-container {\n  width: 100%;\n  height: auto;\n  min-height: 20%;\n  padding: 10px;\n  box-sizing: border-box;\n  background-color: white; }\n  .form-container * {\n    box-sizing: border-box;\n    font-size: 16px; }\n  .form-container .form-group {\n    width: 100%;\n    height: auto;\n    padding: 10px;\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    .form-container .form-group * {\n      font-size: 14px; }\n    .form-container .form-group.row {\n      flex-direction: row; }\n      .form-container .form-group.row .form-label {\n        width: 30%;\n        text-align: right;\n        padding: 0 15px; }\n      .form-container .form-group.row input {\n        outline: none;\n        background-color: #f0f0f0;\n        border: none; }\n        .form-container .form-group.row input:hover, .form-container .form-group.row input:active, .form-container .form-group.row input:focus {\n          background-color: white;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n      .form-container .form-group.row input[type=\"text\"],\n      .form-container .form-group.row input[type=\"number\"] {\n        width: 70%;\n        padding: 10px 20px;\n        border-radius: 10px; }\n    .form-container .form-group.buttons {\n      display: flex;\n      flex-direction: row;\n      align-items: center;\n      justify-content: flex-end; }\n      .form-container .form-group.buttons button {\n        width: auto;\n        height: auto;\n        padding: 8px 15px;\n        background-color: white;\n        color: #555555;\n        outline: none;\n        border: none;\n        border-radius: 10px;\n        border: 1px solid #555555;\n        cursor: pointer;\n        margin: 4px; }\n        .form-container .form-group.buttons button:hover {\n          background-color: #555555;\n          color: white;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/SideBar/SideBar.scss":
 /*!**************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/SideBar/SideBar.scss ***!
@@ -177,7 +195,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 30px 20px 20px 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: block; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n    .widget-container .layout div.layout-item .layout-toolbar {\n      width: 100%;\n      height: 30px;\n      display: none;\n      align-items: center;\n      justify-content: flex-end;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 499; }\n      .widget-container .layout div.layout-item .layout-toolbar .tb-btn {\n        width: 18px;\n        height: 18px;\n        background-color: white;\n        cursor: pointer;\n        position: relative;\n        margin: 0 8px; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings {\n          background-image: url(\"/assets/images/settings.svg\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings:hover .tb-dropdown {\n            display: flex; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown {\n          width: auto;\n          min-width: 100px;\n          height: auto;\n          border-radius: 8px;\n          position: absolute;\n          top: 0;\n          right: 0;\n          z-index: 500;\n          display: none;\n          flex-wrap: nowrap;\n          align-items: center;\n          justify-content: space-between;\n          background-color: transparent; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul {\n            margin: 0;\n            margin-top: 30px;\n            padding: 8px;\n            list-style: none;\n            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n            background-color: white; }\n            .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li {\n              padding: 8px 20px;\n              border-bottom: 1px solid lightgray;\n              font-size: 11px; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:last-child {\n                border-bottom: none; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:hover {\n                background-color: lightgray; }\n    .widget-container .layout div.layout-item:hover .layout-toolbar {\n      display: flex; }\n", ""]);
+exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout * {\n    font-family: \"AvenirNext\", sans-serif; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 30px 20px 20px 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: block; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n    .widget-container .layout div.layout-item .layout-toolbar {\n      width: 100%;\n      height: 30px;\n      display: none;\n      align-items: center;\n      justify-content: flex-end;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 499; }\n      .widget-container .layout div.layout-item .layout-toolbar .tb-btn {\n        width: 18px;\n        height: 18px;\n        background-color: white;\n        cursor: pointer;\n        position: relative;\n        margin: 0 8px; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings {\n          background-image: url(\"/assets/images/settings.svg\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings:hover .tb-dropdown {\n            display: flex; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown {\n          width: auto;\n          min-width: 100px;\n          height: auto;\n          border-radius: 8px;\n          position: absolute;\n          top: 0;\n          right: 0;\n          z-index: 500;\n          display: none;\n          flex-wrap: nowrap;\n          align-items: center;\n          justify-content: space-between;\n          background-color: transparent; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul {\n            margin: 0;\n            margin-top: 30px;\n            padding: 8px;\n            list-style: none;\n            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n            background-color: white; }\n            .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li {\n              padding: 8px 20px;\n              border-bottom: 1px solid lightgray;\n              font-size: 11px; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:last-child {\n                border-bottom: none; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:hover {\n                background-color: lightgray; }\n    .widget-container .layout div.layout-item .layout-not-configured {\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.1);\n      color: #555555;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n      .widget-container .layout div.layout-item .layout-not-configured .message {\n        font-size: 12px; }\n      .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px; }\n        .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white; }\n    .widget-container .layout div.layout-item:hover .layout-toolbar {\n      display: flex; }\n\n.modal {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0, 0, 0, 0.25);\n  z-index: 502;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .modal * {\n    box-sizing: border-box;\n    font-size: 14px; }\n  .modal .modal-content {\n    display: flex;\n    border-radius: 20px;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    position: relative;\n    width: auto;\n    min-width: 40%;\n    max-width: 60%;\n    height: auto;\n    max-height: 90%;\n    background: white;\n    z-index: 510;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-header {\n      width: 100%;\n      height: auto;\n      padding: 20px;\n      display: flex;\n      flex-wrap: nowrap;\n      align-items: center;\n      justify-content: space-between;\n      border-bottom: 1px solid lightgray; }\n      .modal .modal-content .modal-header .modal-close {\n        width: 20px;\n        height: 20px;\n        background-image: url(\"/assets/images/close.svg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: 60% 60%;\n        cursor: pointer;\n        border-radius: 15px; }\n        .modal .modal-content .modal-header .modal-close:hover {\n          background-color: gray;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-body {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      flex-wrap: wrap;\n      padding: 10px 20px;\n      height: auto;\n      min-height: 30%;\n      max-height: 80%;\n      overflow-y: auto;\n      overflow-x: hidden;\n      /* width */\n      /* Track */\n      /* Handle */\n      /* Handle on hover */ }\n      .modal .modal-content .modal-body::-webkit-scrollbar {\n        width: 2px; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-track {\n        background: #f1f1f1; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb {\n        background: #888; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb:hover {\n        background: #555; }\n    .modal .modal-content .modal-footer {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n      padding: 20px;\n      border-top: 1px solid lightgray; }\n      .modal .modal-content .modal-footer .btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px;\n        margin: 4px; }\n        .modal .modal-content .modal-footer .btn.btn-save-changes {\n          background-color: lightgray; }\n        .modal .modal-content .modal-footer .btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7366,6 +7384,125 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./src/components/DynamicForm/DynamicForm.scss":
+/*!*****************************************************!*\
+  !*** ./src/components/DynamicForm/DynamicForm.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./DynamicForm.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/DynamicForm/DynamicForm.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
+/***/ "./src/components/DynamicForm/DynamicForm.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/DynamicForm/DynamicForm.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __webpack_require__(/*! react */ "react");
+__webpack_require__(/*! ./DynamicForm.scss */ "./src/components/DynamicForm/DynamicForm.scss");
+function DynamicForm(props) {
+    // refs & state
+    const myRefs = React.useRef([]);
+    const [formData, setFormData] = React.useState({});
+    // component did mount 
+    // pass second argument as [] to run only once
+    React.useEffect(() => {
+        updateFormDataWithDefaults();
+    }, []);
+    // update state by defaults
+    const updateFormDataWithDefaults = () => {
+        let newData = {};
+        props.formStructure.map((formField) => {
+            let value = formField.value || "";
+            Object.assign(newData, { [formField.name]: value });
+        });
+        setFormData(newData);
+    };
+    // submit event
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        props.onSubmit(formData);
+    };
+    const handleCancel = () => {
+        if (typeof props.onCancel != "undefined") {
+            props.onCancel();
+        }
+    };
+    // change event
+    const handleChange = (e, key) => {
+        let value = e.target.value;
+        if (e.target.type === "checkbox") {
+            value = e.target.checked;
+        }
+        let newData = { [key]: value };
+        let newFormData = Object.assign(Object.assign({}, formData), newData);
+        setFormData(newFormData);
+    };
+    const getFormFiledDetails = (formField) => {
+        let type = "text";
+        if (formField.hasOwnProperty("type")) {
+            switch (formField.type) {
+                case "number":
+                    type = "number";
+                    break;
+                case "boolean":
+                    type = "checkbox";
+                    break;
+            }
+        }
+        let attr = formField.attr || {};
+        return [type, attr];
+    };
+    const generateForm = () => {
+        let formStructure = props.formStructure;
+        let formFields = formStructure.map((formField) => {
+            let key = formField.name;
+            let [type, attr] = getFormFiledDetails(formField);
+            return (React.createElement(React.Fragment, null,
+                React.createElement("div", { className: "form-group row", key: key },
+                    React.createElement("label", { htmlFor: key, key: "label-" + key, className: "form-label" }, formField.label),
+                    React.createElement("input", Object.assign({}, attr, { key: "input-" + key, type: type, className: "form-input", ref: el => (myRefs.current[key] = el), onChange: (e) => handleChange(e, key), value: formData[key] })))));
+        });
+        return formFields;
+    };
+    return (React.createElement(React.Fragment, null,
+        React.createElement("div", { className: "form-container" },
+            React.createElement("form", { onSubmit: handleSubmit },
+                generateForm(),
+                React.createElement("div", { className: "form-group buttons" },
+                    React.createElement("button", { className: "btn btn-submit", type: "submit" }, "Submit"),
+                    React.createElement("button", { className: "btn btn-cancel", type: "reset", onClick: handleCancel }, "Cancel"))))));
+}
+exports.default = DynamicForm;
+
+
+/***/ }),
+
 /***/ "./src/components/SideBar/SideBar.scss":
 /*!*********************************************!*\
   !*** ./src/components/SideBar/SideBar.scss ***!
@@ -7528,36 +7665,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const React = __webpack_require__(/*! react */ "react");
 const GridLayout = __webpack_require__(/*! react-grid-layout */ "./node_modules/react-grid-layout/index.js");
 __webpack_require__(/*! ./WidgetContainer.scss */ "./src/components/WidgetContainer/WidgetContainer.scss");
-class WidgetContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.Width = 1200;
-        this.widgetContainer = React.createRef();
-        this.state = {
-            width: this.Width,
-            widgets: [],
-            pageLoaded: false
-        };
-        this.onLayoutChange = this.onLayoutChange.bind(this);
-        this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
-        this.getNewlyRegisteredWidgets = this.getNewlyRegisteredWidgets.bind(this);
-    }
-    componentDidMount() {
-        // get width
-        let width = this.widgetContainer.current.clientWidth;
-        if (width > this.Width) {
-            this.setState({ width: width });
+const DynamicForm_1 = __webpack_require__(/*! ../DynamicForm/DynamicForm */ "./src/components/DynamicForm/DynamicForm.tsx");
+function WidgetContainer(props) {
+    let Width = 1200;
+    const [width, setWidth] = React.useState(Width);
+    const [widgets, setWidgets] = React.useState([]);
+    const [showConfigModel, setShowConfigModal] = React.useState(false);
+    const [editInstance, setEditInstance] = React.useState(null);
+    // refs 
+    const widgetContainer = React.useRef(null);
+    React.useEffect(() => {
+        let width = widgetContainer.current.clientWidth;
+        if (width > Width) {
+            setWidth(width);
         }
-        this.loadWidgetScripts(this.props.scriptFiles, this.getNewlyRegisteredWidgets);
-    }
+        loadWidgetScripts(props.scriptFiles, getNewlyRegisteredWidgets);
+    }, []);
     // load scripts functions
-    loadWidgetScripts(scriptFiles, callback) {
+    function loadWidgetScripts(scriptFiles, callback) {
         scriptFiles.map((scriptFile, i) => {
-            console.log(scriptFile);
-            this.loadScriptFile(scriptFile, callback);
+            loadScriptFile(scriptFile, callback);
         });
     }
-    loadScriptFile(path, callback) {
+    function loadScriptFile(path, callback) {
         var script = document.createElement('script');
         script.onload = function () {
             if (typeof callback == "function") {
@@ -7568,14 +7698,12 @@ class WidgetContainer extends React.Component {
         document.head.appendChild(script);
     }
     // get newly registered widgets
-    getNewlyRegisteredWidgets() {
-        let widgets = this.loadFromLocalStorage();
-        this.setState({
-            widgets: widgets
-        });
+    function getNewlyRegisteredWidgets() {
+        let widgets = loadFromLocalStorage();
+        setWidgets(widgets);
     }
     // load widgets
-    getLayoutUsingConfigs(widget) {
+    function getLayoutUsingConfigs(widget) {
         let _id = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
         let layout = {
             x: 0,
@@ -7607,7 +7735,7 @@ class WidgetContainer extends React.Component {
         }
         return layout;
     }
-    loadFromLocalStorage() {
+    function loadFromLocalStorage() {
         let savedWidgets = JSON.parse(localStorage.getItem("saved_widgets"));
         // todo:: get saved widgets from database
         if (savedWidgets == null)
@@ -7644,10 +7772,12 @@ class WidgetContainer extends React.Component {
         newWidgets.map((newWidget, i) => {
             let hasConfigured = true;
             if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
-                let newProps = newWidget.configs.props;
+                newWidget.configs.props.map((prop) => {
+                    prop.value = "";
+                });
                 hasConfigured = false;
             }
-            let layout = this.getLayoutUsingConfigs(newWidget);
+            let layout = getLayoutUsingConfigs(newWidget);
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
                 let last = returnWidgets[returnWidgets.length - 1];
                 lastLayout = last.layout;
@@ -7663,14 +7793,15 @@ class WidgetContainer extends React.Component {
             newWidget.key = layout.i;
             newWidget.layout = layout;
             newWidget._id = layout._id;
+            newWidget.hasConfigured = hasConfigured;
             returnWidgets.push(newWidget);
         });
         return returnWidgets;
     }
     // save layout to local storage
-    onLayoutChange(layouts) {
+    function onLayoutChange(layouts) {
         // get widgets
-        let Widgets = this.state.widgets;
+        let Widgets = widgets;
         Widgets.map((widget) => {
             let _layout = layouts.find((layout) => layout.i == widget.key);
             // _layout cannot be undefined at this point
@@ -7678,19 +7809,52 @@ class WidgetContainer extends React.Component {
                 widget.layout = _layout;
             }
         });
-        this.setState({
-            widgets: Widgets
-        }, () => {
-            this.saveToLocalStorage();
-        });
+        setWidgets(Widgets);
+        saveToLocalStorage();
     }
-    saveToLocalStorage() {
-        // console.log("saving to local storage")
-        let widgets = this.state.widgets;
+    function saveToLocalStorage() {
         localStorage.setItem("saved_widgets", JSON.stringify(widgets));
     }
+    // configure
+    function onCloseModel() {
+        setShowConfigModal(false);
+        setEditInstance(null);
+    }
+    function onSaveChanges(submittedData) {
+        console.log("Saving Widget Configurations");
+        let _editInstance = editInstance;
+        let defaultProps = _editInstance.configs.props;
+        defaultProps.map((prop) => {
+            prop.value = submittedData[prop.name];
+        });
+        _editInstance.configs.props = defaultProps;
+        _editInstance.props = submittedData;
+        _editInstance.hasConfigured = true;
+        setEditInstance(_editInstance);
+        // update state
+        let _widgets = [...widgets];
+        _widgets.map((widget) => {
+            if (widget._id === editInstance._id) {
+                widget = editInstance;
+            }
+        });
+        setWidgets(_widgets);
+        saveToLocalStorage();
+        onCloseModel();
+    }
+    function renderConfigModel() {
+        let formStructure = editInstance.configs.props;
+        return (React.createElement(React.Fragment, null,
+            React.createElement("div", { className: "modal" },
+                React.createElement("div", { className: "modal-content" },
+                    React.createElement("div", { className: "modal-header" },
+                        React.createElement("div", { className: "mh-title" }, "Edit Configurations"),
+                        React.createElement("div", { className: "modal-close", onClick: onCloseModel })),
+                    React.createElement("div", { className: "modal-body" },
+                        React.createElement(DynamicForm_1.default, { formStructure: formStructure, onSubmit: onSaveChanges, onCancel: onCloseModel }))))));
+    }
     // render
-    renderWidget(widget, key) {
+    function renderWidget(widget, key) {
         let WidgetElement = widget.widget;
         let styles = {};
         if (widget.hasOwnProperty("configs") && widget.configs.hasOwnProperty("container")) {
@@ -7702,21 +7866,40 @@ class WidgetContainer extends React.Component {
                 }
             }
         }
-        return (React.createElement("div", { className: "layout-item", style: styles, key: key, "data-grid": widget.layout },
-            React.createElement("div", { className: "layout-toolbar" },
-                React.createElement("div", { className: "tb-btn settings" },
-                    React.createElement("div", { className: "tb-dropdown" },
-                        React.createElement("ul", null,
-                            React.createElement("li", null, "Configurations"),
-                            React.createElement("li", null, "Duplicate"),
-                            React.createElement("li", null, "Remove"))))),
-            React.createElement(WidgetElement, null)));
+        let showConfigOption = (widget.hasOwnProperty("configs") && widget.configs.hasOwnProperty("props"));
+        return (React.createElement("div", { className: "layout-item", style: styles, key: key, "data-grid": widget.layout, "data-instance-id": widget._id }, widget.hasConfigured ?
+            React.createElement(React.Fragment, null,
+                React.createElement("div", { className: "layout-toolbar" },
+                    React.createElement("div", { className: "tb-btn settings" },
+                        React.createElement("div", { className: "tb-dropdown" },
+                            React.createElement("ul", null,
+                                showConfigOption ?
+                                    React.createElement("li", { onClick: () => {
+                                            setShowConfigModal(true);
+                                            setEditInstance(widget);
+                                        } }, "Configurations")
+                                    :
+                                        "",
+                                React.createElement("li", null, "Duplicate"),
+                                React.createElement("li", null, "Remove"))))),
+                React.createElement(WidgetElement, Object.assign({}, widget.props)))
+            :
+                React.createElement("div", { className: "layout-not-configured" },
+                    React.createElement("p", { className: "message" }, "Widget Not Configured"),
+                    React.createElement("button", { className: "config-widget-btn", onClick: () => {
+                            setShowConfigModal(true);
+                            setEditInstance(widget);
+                        } },
+                        React.createElement("span", { className: "icon" }),
+                        " Configure"))));
     }
-    render() {
-        return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: "widget-container", ref: this.widgetContainer },
-                React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: 1200, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: this.onLayoutChange }, this.state.widgets.map((widget, key) => this.renderWidget(widget, key))))));
-    }
+    return (React.createElement(React.Fragment, null,
+        React.createElement("div", { className: "widget-container", ref: widgetContainer },
+            React.createElement(GridLayout, { className: "layout", cols: 12, rowHeight: 30, width: 1200, isResizable: true, isDraggable: true, autoSize: false, onLayoutChange: onLayoutChange }, widgets.map((widget, key) => renderWidget(widget, key)))),
+        showConfigModel == true && editInstance != null ?
+            renderConfigModel()
+            :
+                ""));
 }
 exports.default = WidgetContainer;
 

@@ -195,7 +195,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout * {\n    font-family: \"AvenirNext\", sans-serif; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 30px 20px 20px 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: block; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n    .widget-container .layout div.layout-item .layout-toolbar {\n      width: 100%;\n      height: 30px;\n      display: none;\n      align-items: center;\n      justify-content: flex-end;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 499; }\n      .widget-container .layout div.layout-item .layout-toolbar .tb-btn {\n        width: 18px;\n        height: 18px;\n        background-color: white;\n        cursor: pointer;\n        position: relative;\n        margin: 0 8px; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings {\n          background-image: url(\"/assets/images/settings.svg\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings:hover .tb-dropdown {\n            display: flex; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown {\n          width: auto;\n          min-width: 100px;\n          height: auto;\n          border-radius: 8px;\n          position: absolute;\n          top: 0;\n          right: 0;\n          z-index: 500;\n          display: none;\n          flex-wrap: nowrap;\n          align-items: center;\n          justify-content: space-between;\n          background-color: transparent; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul {\n            margin: 0;\n            margin-top: 30px;\n            padding: 8px;\n            list-style: none;\n            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n            background-color: white; }\n            .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li {\n              padding: 8px 20px;\n              border-bottom: 1px solid lightgray;\n              font-size: 11px; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:last-child {\n                border-bottom: none; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:hover {\n                background-color: lightgray; }\n    .widget-container .layout div.layout-item .layout-not-configured {\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.1);\n      color: #555555;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n      .widget-container .layout div.layout-item .layout-not-configured .message {\n        font-size: 12px; }\n      .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px; }\n        .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white; }\n    .widget-container .layout div.layout-item:hover .layout-toolbar {\n      display: flex; }\n\n.modal {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0, 0, 0, 0.25);\n  z-index: 502;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .modal * {\n    box-sizing: border-box;\n    font-size: 14px; }\n  .modal .modal-content {\n    display: flex;\n    border-radius: 20px;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    position: relative;\n    width: auto;\n    min-width: 40%;\n    max-width: 60%;\n    height: auto;\n    max-height: 90%;\n    background: white;\n    z-index: 510;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-header {\n      width: 100%;\n      height: auto;\n      padding: 20px;\n      display: flex;\n      flex-wrap: nowrap;\n      align-items: center;\n      justify-content: space-between;\n      border-bottom: 1px solid lightgray; }\n      .modal .modal-content .modal-header .modal-close {\n        width: 20px;\n        height: 20px;\n        background-image: url(\"/assets/images/close.svg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: 60% 60%;\n        cursor: pointer;\n        border-radius: 15px; }\n        .modal .modal-content .modal-header .modal-close:hover {\n          background-color: gray;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-body {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      flex-wrap: wrap;\n      padding: 10px 20px;\n      height: auto;\n      min-height: 30%;\n      max-height: 80%;\n      overflow-y: auto;\n      overflow-x: hidden;\n      /* width */\n      /* Track */\n      /* Handle */\n      /* Handle on hover */ }\n      .modal .modal-content .modal-body::-webkit-scrollbar {\n        width: 2px; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-track {\n        background: #f1f1f1; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb {\n        background: #888; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb:hover {\n        background: #555; }\n    .modal .modal-content .modal-footer {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n      padding: 20px;\n      border-top: 1px solid lightgray; }\n      .modal .modal-content .modal-footer .btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px;\n        margin: 4px; }\n        .modal .modal-content .modal-footer .btn.btn-save-changes {\n          background-color: lightgray; }\n        .modal .modal-content .modal-footer .btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n", ""]);
+exports.push([module.i, ".widget-container {\n  width: 100%;\n  height: inherit; }\n  .widget-container .layout * {\n    font-family: \"AvenirNext\", sans-serif; }\n  .widget-container .layout div.layout-item {\n    background: white;\n    padding: 30px 20px 20px 20px;\n    margin: 0;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n    box-sizing: border-box;\n    display: block; }\n    .widget-container .layout div.layout-item .overlay {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.25);\n      z-index: 100; }\n      .widget-container .layout div.layout-item .overlay button {\n        width: auto;\n        height: auto;\n        padding: 6px;\n        border-radius: 0px;\n        background-color: white;\n        color: gray;\n        border: 1px solid gray;\n        outline: 0;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        font-size: 10px; }\n        .widget-container .layout div.layout-item .overlay button:hover, .widget-container .layout div.layout-item .overlay button.active {\n          color: white;\n          background-color: #5752c9;\n          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);\n          border: 1px solid #5752c9; }\n    .widget-container .layout div.layout-item .react-resizable-handle {\n      z-index: 101;\n      background-color: white; }\n    .widget-container .layout div.layout-item .layout-toolbar {\n      width: 100%;\n      height: 30px;\n      display: none;\n      align-items: center;\n      justify-content: flex-end;\n      position: absolute;\n      top: 0;\n      left: 0;\n      z-index: 499;\n      margin-right: 4px; }\n      .widget-container .layout div.layout-item .layout-toolbar .tb-btn {\n        width: 18px;\n        height: 18px;\n        background-color: white;\n        cursor: pointer;\n        position: relative;\n        margin: 0 8px; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings {\n          background-image: url(\"/assets/images/settings.svg\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn.settings:hover .tb-dropdown {\n            display: flex; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn.drag {\n          background-image: url(\"/assets/images/drag.png\");\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: contain; }\n        .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown {\n          width: auto;\n          min-width: 100px;\n          height: auto;\n          border-radius: 8px;\n          position: absolute;\n          top: 0;\n          right: 0;\n          z-index: 500;\n          display: none;\n          flex-wrap: nowrap;\n          align-items: center;\n          justify-content: space-between;\n          background-color: transparent; }\n          .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul {\n            margin: 0;\n            margin-top: 30px;\n            padding: 8px;\n            list-style: none;\n            box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12);\n            background-color: white; }\n            .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li {\n              padding: 8px 20px;\n              border-bottom: 1px solid lightgray;\n              font-size: 11px; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:last-child {\n                border-bottom: none; }\n              .widget-container .layout div.layout-item .layout-toolbar .tb-btn .tb-dropdown ul li:hover {\n                background-color: lightgray; }\n    .widget-container .layout div.layout-item .layout-not-configured {\n      position: absolute;\n      top: 0;\n      left: 0;\n      bottom: 0;\n      right: 0;\n      background-color: rgba(0, 0, 0, 0.1);\n      color: #555555;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n      .widget-container .layout div.layout-item .layout-not-configured * {\n        overflow-wrap: break-word;\n        word-wrap: break-word;\n        hyphens: auto; }\n      .widget-container .layout div.layout-item .layout-not-configured .widget-name {\n        font-size: 16px; }\n      .widget-container .layout div.layout-item .layout-not-configured .message {\n        font-size: 12px; }\n      .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px; }\n        .widget-container .layout div.layout-item .layout-not-configured .config-widget-btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white; }\n    .widget-container .layout div.layout-item:hover .layout-toolbar {\n      display: flex; }\n\n.modal {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: rgba(0, 0, 0, 0.25);\n  z-index: 502;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .modal * {\n    box-sizing: border-box;\n    font-size: 14px; }\n  .modal .modal-content {\n    display: flex;\n    border-radius: 20px;\n    flex-direction: column;\n    align-items: center;\n    justify-content: flex-start;\n    position: relative;\n    width: auto;\n    min-width: 40%;\n    max-width: 60%;\n    height: auto;\n    max-height: 90%;\n    background: white;\n    z-index: 510;\n    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-header {\n      width: 100%;\n      height: auto;\n      padding: 20px;\n      display: flex;\n      flex-wrap: nowrap;\n      align-items: center;\n      justify-content: space-between;\n      border-bottom: 1px solid lightgray; }\n      .modal .modal-content .modal-header .modal-close {\n        width: 20px;\n        height: 20px;\n        background-image: url(\"/assets/images/close.svg\");\n        background-repeat: no-repeat;\n        background-position: center;\n        background-size: 60% 60%;\n        cursor: pointer;\n        border-radius: 15px; }\n        .modal .modal-content .modal-header .modal-close:hover {\n          background-color: gray;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n    .modal .modal-content .modal-body {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      flex-wrap: wrap;\n      padding: 10px 20px;\n      height: auto;\n      min-height: 30%;\n      max-height: 80%;\n      overflow-y: auto;\n      overflow-x: hidden;\n      /* width */\n      /* Track */\n      /* Handle */\n      /* Handle on hover */ }\n      .modal .modal-content .modal-body::-webkit-scrollbar {\n        width: 2px; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-track {\n        background: #f1f1f1; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb {\n        background: #888; }\n      .modal .modal-content .modal-body::-webkit-scrollbar-thumb:hover {\n        background: #555; }\n    .modal .modal-content .modal-footer {\n      width: 100%;\n      margin-top: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n      padding: 20px;\n      border-top: 1px solid lightgray; }\n      .modal .modal-content .modal-footer .btn {\n        width: auto;\n        height: auto;\n        outline: none;\n        background: white;\n        border: 1px solid white;\n        padding: 8px 20px;\n        border-radius: 8px;\n        cursor: pointer;\n        color: #555555;\n        font-size: 12px;\n        margin: 4px; }\n        .modal .modal-content .modal-footer .btn.btn-save-changes {\n          background-color: lightgray; }\n        .modal .modal-content .modal-footer .btn:hover {\n          border: 1px solid white;\n          background-color: #555555;\n          color: white;\n          box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.12); }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7703,8 +7703,12 @@ function WidgetContainer(props) {
         setWidgets(widgets);
     }
     // load widgets
-    function getLayoutUsingConfigs(widget) {
+    function generateId() {
         let _id = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
+        return _id;
+    }
+    function getLayoutUsingConfigs(widget) {
+        let _id = generateId();
         let layout = {
             x: 0,
             y: 0,
@@ -7734,6 +7738,26 @@ function WidgetContainer(props) {
             layout = merged;
         }
         return layout;
+    }
+    function initWidget(newWidget, lastLayout) {
+        let hasConfigured = true;
+        if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
+            newWidget.configs.props.map((prop) => {
+                prop.value = "";
+            });
+            hasConfigured = false;
+        }
+        let layout = getLayoutUsingConfigs(newWidget);
+        if (lastLayout !== null) {
+            layout.y = lastLayout.y + lastLayout.h;
+            if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
+                layout.x = lastLayout.x + lastLayout.w;
+                layout.y = lastLayout.y;
+            }
+        }
+        newWidget._id = layout._id;
+        newWidget.hasConfigured = hasConfigured;
+        return [layout, newWidget];
     }
     function loadFromLocalStorage() {
         let savedWidgets = JSON.parse(localStorage.getItem("saved_widgets"));
@@ -7770,31 +7794,15 @@ function WidgetContainer(props) {
         });
         // generate layout for new widgets
         newWidgets.map((newWidget, i) => {
-            let hasConfigured = true;
-            if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
-                newWidget.configs.props.map((prop) => {
-                    prop.value = "";
-                });
-                hasConfigured = false;
-            }
-            let layout = getLayoutUsingConfigs(newWidget);
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
                 let last = returnWidgets[returnWidgets.length - 1];
                 lastLayout = last.layout;
             }
-            if (lastLayout !== null) {
-                layout.y = lastLayout.y + lastLayout.h;
-                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
-                    layout.x = lastLayout.x + lastLayout.w;
-                    layout.y = lastLayout.y;
-                }
-            }
+            let [layout, updatedWidget] = initWidget(newWidget, lastLayout);
             layout.i = returnWidgets.length.toString();
-            newWidget.key = layout.i;
-            newWidget.layout = layout;
-            newWidget._id = layout._id;
-            newWidget.hasConfigured = hasConfigured;
-            returnWidgets.push(newWidget);
+            updatedWidget.key = layout.i;
+            updatedWidget.layout = layout;
+            returnWidgets.push(updatedWidget);
         });
         return returnWidgets;
     }
@@ -7853,6 +7861,36 @@ function WidgetContainer(props) {
                     React.createElement("div", { className: "modal-body" },
                         React.createElement(DynamicForm_1.default, { formStructure: formStructure, onSubmit: onSaveChanges, onCancel: onCloseModel }))))));
     }
+    // duplicate widget
+    function onDuplicateWidget(duplicatingWidget) {
+        let newInstance = Object.assign({}, duplicatingWidget);
+        let lastLayout = null;
+        widgets.map((widget) => {
+            let savedLayout = widget.layout;
+            if (lastLayout === null) {
+                lastLayout = savedLayout;
+            }
+            else {
+                if (lastLayout.x < savedLayout.x || lastLayout.y < savedLayout.y) {
+                    lastLayout = savedLayout;
+                }
+            }
+        });
+        let [layout, newWidget] = initWidget(newInstance, lastLayout);
+        layout.i = widgets.length.toString();
+        newWidget.key = layout.i;
+        newWidget.layout = layout;
+        // add to widgets
+        let updatedWidgets = [...widgets];
+        updatedWidgets.push(newWidget);
+        setWidgets(updatedWidgets);
+    }
+    function onRemoveWidget(deletingWidget) {
+        console.log('removing widgets');
+        let oldWidgets = [...widgets];
+        let updateWidgets = oldWidgets.filter((widget) => (widget._id !== deletingWidget._id));
+        setWidgets(updateWidgets);
+    }
     // render
     function renderWidget(widget, key) {
         let WidgetElement = widget.widget;
@@ -7870,6 +7908,7 @@ function WidgetContainer(props) {
         return (React.createElement("div", { className: "layout-item", style: styles, key: key, "data-grid": widget.layout, "data-instance-id": widget._id }, widget.hasConfigured ?
             React.createElement(React.Fragment, null,
                 React.createElement("div", { className: "layout-toolbar" },
+                    React.createElement("div", { className: "tb-btn drag" }),
                     React.createElement("div", { className: "tb-btn settings" },
                         React.createElement("div", { className: "tb-dropdown" },
                             React.createElement("ul", null,
@@ -7880,11 +7919,12 @@ function WidgetContainer(props) {
                                         } }, "Configurations")
                                     :
                                         "",
-                                React.createElement("li", null, "Duplicate"),
-                                React.createElement("li", null, "Remove"))))),
+                                React.createElement("li", { onClick: () => onDuplicateWidget(widget) }, "Duplicate"),
+                                React.createElement("li", { onClick: () => onRemoveWidget(widget) }, "Remove"))))),
                 React.createElement(WidgetElement, Object.assign({}, widget.props)))
             :
                 React.createElement("div", { className: "layout-not-configured" },
+                    React.createElement("p", { className: "widget-name" }, widget.name),
                     React.createElement("p", { className: "message" }, "Widget Not Configured"),
                     React.createElement("button", { className: "config-widget-btn", onClick: () => {
                             setShowConfigModal(true);

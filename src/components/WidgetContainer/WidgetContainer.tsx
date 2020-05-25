@@ -94,8 +94,12 @@ function WidgetContainer(props: IProps) {
     }
 
     // load widgets
-    function getLayoutUsingConfigs(widget: any) {
+    function generateId() {
         let _id: string = new Date().getTime().toString() + (Math.round(Math.random() * 100000)).toString();
+        return _id
+    }
+    function getLayoutUsingConfigs(widget: any) {
+        let _id: string = generateId();
         let layout: ILayout = {
             x: 0,
             y: 0,
@@ -131,6 +135,34 @@ function WidgetContainer(props: IProps) {
         }
 
         return layout;
+    }
+
+    function initWidget(newWidget: any, lastLayout: any) {
+
+        let hasConfigured = true;
+        if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
+            newWidget.configs.props.map((prop: any) => {
+                prop.value = ""
+            })
+
+            hasConfigured = false;
+        }
+
+
+        let layout = getLayoutUsingConfigs(newWidget);
+
+        if (lastLayout !== null) {
+            layout.y = lastLayout.y + lastLayout.h;
+            if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
+                layout.x = lastLayout.x + lastLayout.w;
+                layout.y = lastLayout.y
+            }
+        }
+
+        newWidget._id = layout._id;
+        newWidget.hasConfigured = hasConfigured;
+
+        return [layout, newWidget];
     }
 
     function loadFromLocalStorage() {
@@ -182,39 +214,19 @@ function WidgetContainer(props: IProps) {
         // generate layout for new widgets
         newWidgets.map((newWidget: IWidgetInstance, i: number) => {
 
-            let hasConfigured = true;
-            if (newWidget.hasOwnProperty("configs") && newWidget.configs.hasOwnProperty("props")) {
-                newWidget.configs.props.map((prop: any) => {
-                    prop.value = ""
-                })
-                hasConfigured = false;
-            }
-
-            let layout = getLayoutUsingConfigs(newWidget);
-
             if ((lastLayout === null && i === 0 && returnWidgets.length > 0) || (i > 0)) {
                 let last = returnWidgets[returnWidgets.length - 1];
                 lastLayout = last.layout;
             }
 
-
-            if (lastLayout !== null) {
-                layout.y = lastLayout.y + lastLayout.h;
-                if ((lastLayout.x + lastLayout.w) < 12 && (lastLayout.x + lastLayout.w + layout.w) <= 12) {
-                    layout.x = lastLayout.x + lastLayout.w;
-                    layout.y = lastLayout.y
-                }
-            }
+            let [layout, updatedWidget] = initWidget(newWidget, lastLayout);
 
 
             layout.i = returnWidgets.length.toString();
+            updatedWidget.key = layout.i;
+            updatedWidget.layout = layout;
 
-            newWidget.key = layout.i;
-            newWidget.layout = layout;
-            newWidget._id = layout._id;
-            newWidget.hasConfigured = hasConfigured;
-
-            returnWidgets.push(newWidget);
+            returnWidgets.push(updatedWidget);
         })
 
         return returnWidgets;
@@ -303,7 +315,42 @@ function WidgetContainer(props: IProps) {
 
     }
 
+    // duplicate widget
+    function onDuplicateWidget(duplicatingWidget: any) {
+        let newInstance = {...duplicatingWidget};
+        let lastLayout: any = null;
 
+        widgets.map((widget: any) => {
+            let savedLayout = widget.layout
+            if (lastLayout === null) {
+                lastLayout = savedLayout;
+            }
+            else {
+                if (lastLayout.x < savedLayout.x || lastLayout.y < savedLayout.y) {
+                    lastLayout = savedLayout;
+                }
+            }
+        })
+
+        let [layout, newWidget] = initWidget(newInstance, lastLayout);
+
+        layout.i = widgets.length.toString();
+        newWidget.key = layout.i;
+        newWidget.layout = layout;
+
+        // add to widgets
+        let updatedWidgets = [...widgets];
+        updatedWidgets.push(newWidget);
+        setWidgets(updatedWidgets);
+    }
+
+    function onRemoveWidget(deletingWidget:any) {
+        console.log('removing widgets');
+        let oldWidgets = [...widgets];
+        let updateWidgets = oldWidgets.filter((widget:any) => (widget._id !== deletingWidget._id));
+
+        setWidgets(updateWidgets);
+    }
 
 
     // render
@@ -331,6 +378,7 @@ function WidgetContainer(props: IProps) {
                     widget.hasConfigured ?
                         <>
                             <div className="layout-toolbar">
+                                <div className="tb-btn drag"></div>
                                 <div className="tb-btn settings">
 
                                     <div className="tb-dropdown">
@@ -346,8 +394,8 @@ function WidgetContainer(props: IProps) {
                                                     :
                                                     ""
                                             }
-                                            <li>Duplicate</li>
-                                            <li>Remove</li>
+                                            <li onClick={() => onDuplicateWidget(widget)}>Duplicate</li>
+                                            <li onClick={() => onRemoveWidget(widget)}>Remove</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -357,6 +405,7 @@ function WidgetContainer(props: IProps) {
                         :
 
                         <div className="layout-not-configured">
+                            <p className="widget-name">{widget.name}</p>
                             <p className="message">Widget Not Configured</p>
                             <button className="config-widget-btn"
                                 onClick={() => {
